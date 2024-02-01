@@ -1,0 +1,7 @@
+version: 1.0
+
+push_script: |
+  echo 'y' | sf plugins install @dxatscale/sfpowerscripts
+
+  sf orchestrator:quickbuild --devhubalias ${SALESFORCE_DEVHUB_USERNAME} --branch main --waittime 30
+  sf orchestrator:deploy -u ${SALESFORCE_USERNAME} --waittime 60 --enablesourcetracking
