@@ -1,0 +1,5 @@
+# Internal .gitignore to avoid tracking SFDMU execution files that are not required for the DX@Scale package.
+
+*.log
+*target
+MissingParentRecordsReport.csv

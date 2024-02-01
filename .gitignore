@@ -4,3 +4,4 @@ artifacts
 .sf
 .npmrc
 buildResult.json
+*.log
