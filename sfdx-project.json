@@ -59,7 +59,7 @@
 			"type": "source"
 		},
 		{
-			"path": "./src-temp",
+			"path": "./src/src-temp",
 			"default": true
 		}
 	],
