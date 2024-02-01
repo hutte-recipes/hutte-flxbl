@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<FlexiPage xmlns="http://soap.sforce.com/2006/04/metadata">
+    <flexiPageRegions>
+        <itemInstances>
+            <componentInstance>
+                <componentInstanceProperties>
+                    <name>sobject</name>
+                    <value>Lead</value>
+                </componentInstanceProperties>
+                <componentName>customerList</componentName>
+                <identifier>customerList1</identifier>
+            </componentInstance>
+        </itemInstances>
+        <itemInstances>
+            <componentInstance>
+                <componentInstanceProperties>
+                    <name>sobject</name>
+                    <value>Contact</value>
+                </componentInstanceProperties>
+                <componentName>customerList</componentName>
+                <identifier>customerList2</identifier>
+            </componentInstance>
+        </itemInstances>
+        <name>leftColumn</name>
+        <type>Region</type>
+    </flexiPageRegions>
+    <flexiPageRegions>
+        <itemInstances>
+            <componentInstance>
+                <componentName>reservationHelperAura</componentName>
+                <identifier>reservationHelperAura1</identifier>
+            </componentInstance>
+        </itemInstances>
+        <name>rightColumn</name>
+        <type>Region</type>
+    </flexiPageRegions>
+    <masterLabel>Reservation Manager</masterLabel>
+    <template>
+        <name>AppPage_4_8</name>
+    </template>
+    <type>AppPage</type>
+</FlexiPage>

@@ -1,0 +1,9 @@
+release: "Release-1.0"
+skipIfAlreadyInstalled: true
+artifacts:
+  es-base-objects: LATEST_TAG
+  es-base-code: LATEST_TAG
+  es-base-styles: LATEST_TAG
+  es-space-mgmt: LATEST_TAG
+changelog:
+  workItemFilter: "issues/[0-9]+"

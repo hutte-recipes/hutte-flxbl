@@ -1,2 +1,78 @@
 # hutte-dxatscale
+
 Baseline of Hutte and DX@Scale combination. This recipe also showcases an example using the easy-spaces-lwc salesforce project with modular architecture.
+
+Extends from https://github.com/dxatscale/dxatscale-template
+
+# Internal Notes
+
+- Using Hutte Pools instead of DX@Scale Pools, therefore this recipe does not contains the github actions for org pools management and neither the scratch org definitions for it that the [DX@Scale template](https://github.com/dxatscale/dxatscale-template) repository provides.
+
+**Development**
+
+This project is using a scratch org development model. In order to contribute you will need to create a scratch org with and push all metadata configuration and code.
+
+**Dependencies**
+
+- sf cli
+- @dxatscale/sfpowerscripts plugin ( npm i -g @dxatscale/sfpowerscripts)
+
+**Scratch Org Setup**
+
+For this you will need to be authenticated to a Dev Hub org - this is typically the Production Org
+
+- Authenticate to the DevHub (Production Org)
+
+  You need to perform this step only once
+
+  ```
+   $ sf auth:web:login -setalias devhub
+  ```
+
+- Clone the repository
+
+- There are two options: fetch a scratch org with package dependencies pre-installed, or create an empty scratch org
+
+  - Option A: Fetch a scratch org from the pool [Preferred]
+
+    ```
+
+    sfp pool:fetch -t dev -a  <alias>
+    ```
+
+  - Option B: Create a scratch org and install all dependencies
+
+    ```
+    sfdx org:create --definitionfile config/project-scratch-def.json --setalias <myScratchOrg> --targetdevhubusername <devhub-alias>
+    sfp dependency:install --targetusername <myScratchOrg> -v <devhub-alias>
+
+    Push the source code
+    sf project deploy start --targetusername <myScratchOrg>
+
+    ```
+
+**File structure**
+
+src
+
+Each domain should be represented by a subfolder under this directory. For example, the core schema is defined as src/core-crm.
+
+src-env-specific
+
+Metadata that is specific to a particular org should be stored here, under the relevant org folder e.g. sit.
+
+src-access-management
+
+This folder is comprised of metadata relating to profiles and other access management.
+
+scripts
+
+Container for scripts organised by domain e.g. customer, candidates. Initialisation scripts for scratch orgs are also found here.
+
+forceignores
+
+Container for .forceignore files belonging to different scratchorg configurations.
+
+src-temp
+
+New metadata created in scratch orgs is automatically pulled to this location, and must be moved into a package as it does not get deployed.
