@@ -1,7 +1,7 @@
 version: 1.0
 
 push_script: |
-  echo 'y' | sf plugins install @dxatscale/sfpowerscripts
+  echo 'y' | npm i -g @dxatscale/sfpowerscripts
 
-  sf orchestrator:quickbuild --devhubalias ${SALESFORCE_DEVHUB_USERNAME} --branch main --waittime 30
-  sf orchestrator:deploy -u ${SALESFORCE_USERNAME} --waittime 60 --enablesourcetracking
+  sfp orchestrator:quickbuild --devhubalias ${SALESFORCE_DEVHUB_USERNAME} --branch main --waittime 30
+  sfp orchestrator:deploy -u ${SALESFORCE_USERNAME} --waittime 60 --enablesourcetracking
