@@ -6,14 +6,3 @@ push_script: |
 
   sfp orchestrator:quickbuild --devhubalias ${SALESFORCE_DEVHUB_USERNAME} --branch main --waittime 30
   sfp orchestrator:deploy -u ${SALESFORCE_USERNAME} --waittime 60 --enablesourcetracking
-
-custom_scripts:
-  # This scripts will be displayed on the scratch org's page
-  scratch_org:
-    "Build & Publish Artifacts":
-      description: "Build & Publish Artifacts"
-      run: |
-        echo 'y' | npm i -g @dxatscale/sfpowerscripts
-
-        sfp orchestrator:quickbuild --devhubalias ${SALESFORCE_DEVHUB_USERNAME} --branch main --waittime 30
-        sfp orchestrator:publish -d artifacts --npm --scope @mmoyaferrer  --gittag --pushgittag
