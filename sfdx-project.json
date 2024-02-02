@@ -72,6 +72,8 @@
 	"namespace": "",
 	"sfdcLoginUrl": "https://login.salesforce.com",
 	"sourceApiVersion": "57.0",
-	"packageAliases": {},
+	"packageAliases": {
+        	"es-base-objects": ""
+    	},
 	"plugins": {}
 }
