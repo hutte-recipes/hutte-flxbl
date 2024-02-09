@@ -6,3 +6,29 @@ push_script: |
 
   sfp orchestrator:quickbuild --devhubalias ${SALESFORCE_DEVHUB_USERNAME} --branch main --waittime 30
   sfp orchestrator:deploy -u ${SALESFORCE_USERNAME} --waittime 60 --enablesourcetracking
+
+custom_scripts:
+  scratch_org:
+    "Export Data into Package":
+      description: "Export Data into dxatscale package"
+      run: |
+        echo y | sf plugins install sfdmu
+        cd src/data-sample-pkg 
+        sf sfdmu run --sourceusername "${SALESFORCE_USERNAME}" --targetusername csvfile
+        cd ../..
+        git add src/data-sample-pkg/*
+        git commit -m "chore: update data package"
+        git push
+        echo "Data Package has been updated in git. After this, the github action will be triggered and create a new package in the registry."
+  sandbox:
+    "Export Data into Package":
+      description: "Export Data into dxatscale package"
+      run: |
+        echo y | sf plugins install sfdmu
+        cd src/data-sample-pkg 
+        sf sfdmu run --sourceusername "${SALESFORCE_USERNAME}" --targetusername csvfile
+        cd ../..
+        git add src/data-sample-pkg/*
+        git commit -m "chore: update data package"
+        git push
+        echo "Data Package has been updated in git. After this, the github action will be triggered and create a new package in the registry."
