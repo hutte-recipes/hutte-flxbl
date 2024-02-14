@@ -39,6 +39,26 @@
                 "hashId": "8bcd4983fd3d3c6f2ec2e638e22fc328c6e09be9"
             },
             "retryCount": 0
+        },
+        {
+            "name": "uat",
+            "releases": [
+                {
+                    "names": [
+                        "Release-1.0"
+                    ],
+                    "buildNumber": 2,
+                    "hashId": "f1d7aaa06878db5a9ddec6d34b3482c36f07cfd2"
+                }
+            ],
+            "latestRelease": {
+                "names": [
+                    "Release-1.0"
+                ],
+                "buildNumber": 2,
+                "hashId": "f1d7aaa06878db5a9ddec6d34b3482c36f07cfd2"
+            },
+            "retryCount": 0
         }
     ],
     "releases": [
@@ -148,6 +168,57 @@
             ],
             "hashId": "8bcd4983fd3d3c6f2ec2e638e22fc328c6e09be9",
             "date": "Wed Feb 14 2024 18:09:08 GMT+0000 (Coordinated Universal Time)"
+        },
+        {
+            "names": [
+                "Release-1.0"
+            ],
+            "buildNumber": 2,
+            "workItems": {},
+            "artifacts": [
+                {
+                    "name": "es-space-mgmt",
+                    "from": "67e1d372",
+                    "to": "8c88d681",
+                    "version": "1.0.0.7905563020",
+                    "latestCommitId": "97a14ab8",
+                    "commits": []
+                },
+                {
+                    "name": "es-base-styles",
+                    "from": "67e1d372",
+                    "to": "8c88d681",
+                    "version": "1.0.0.7905563020",
+                    "latestCommitId": "97a14ab8",
+                    "commits": []
+                },
+                {
+                    "name": "es-base-objects",
+                    "from": "67e1d372",
+                    "to": "8c88d681",
+                    "version": "1.0.0.7905563020",
+                    "latestCommitId": "97a14ab8",
+                    "commits": []
+                },
+                {
+                    "name": "es-base-code",
+                    "from": "ce045953",
+                    "to": "8c88d681",
+                    "version": "1.0.0.7905563020",
+                    "latestCommitId": "cef7d1a8",
+                    "commits": []
+                },
+                {
+                    "name": "data-sample-package",
+                    "from": "ce045953",
+                    "to": "8c88d681",
+                    "version": "1.0.0.7905563020",
+                    "latestCommitId": "ab709e39",
+                    "commits": []
+                }
+            ],
+            "hashId": "f1d7aaa06878db5a9ddec6d34b3482c36f07cfd2",
+            "date": "Wed Feb 14 2024 18:22:23 GMT+0000 (Coordinated Universal Time)"
         }
     ]
 }
