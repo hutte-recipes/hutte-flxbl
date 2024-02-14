@@ -39,7 +39,10 @@ jobs:
           fetch-depth: 0
 
       - name: "test"
-        run: git config --get remote.origin.url
+        run: |
+          git remote -v
+          git remote add origin ${{ github.server_url }}/${{ github.repository }}
+          git config --get -f remote.origin.url
 
       - name: "Authenticate Dev Hub"
         run: |
