@@ -1,4 +1,4 @@
-[![st-Release-1.0-1(0)-green](https://img.shields.io/static/v1?label=st&message=Release-1.0-1(0)&color=green)](#8bcd4983fd3d3c6f2ec2e638e22fc328c6e09be9) 
+[![st-Release-1.0-1(0)-green](https://img.shields.io/static/v1?label=st&message=Release-1.0-1(0)&color=green)](#8bcd4983fd3d3c6f2ec2e638e22fc328c6e09be9) [![sit-Release-1.0-1(0)-green](https://img.shields.io/static/v1?label=sit&message=Release-1.0-1(0)&color=green)](#8bcd4983fd3d3c6f2ec2e638e22fc328c6e09be9) 
 <a id=8bcd4983fd3d3c6f2ec2e638e22fc328c6e09be9></a>
 # Release-1.0
  Cumulative Release Number: <b>1</b> 
