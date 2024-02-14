@@ -38,6 +38,9 @@ jobs:
         with:
           fetch-depth: 0
 
+      - name: "test"
+        run: git config --get remote.origin.url
+
       - name: "Authenticate Dev Hub"
         run: |
           echo "${{ secrets.DEVHUB_SFDX_AUTH_URL }}" > ./authfile
@@ -48,7 +51,6 @@ jobs:
       - name: "Push source to Hutte scratch org from pool"
         run: |
           echo y | sf plugins install hutte #TODO: Use public Hutte Docker image in Github
-          sf hutte auth login --email ${{ secrets.HUTTE_LOGIN_EMAIL }} --password ${{ secrets.HUTTE_LOGIN_PASSWORD }}
-          sf hutte pool take --json --wait
+          sf hutte pool take --api-token "${{ secrets.HUTTE_API_TOKEN }}" --json --wait
           poolOrgAlias=$(sf org display --json | jq -r '.result.alias')
           sfp orchestrator:validateAgainstOrg -u --targetorg $poolOrgAlias --devhubalias ${{ vars.DEV_HUB_ALIAS }}
