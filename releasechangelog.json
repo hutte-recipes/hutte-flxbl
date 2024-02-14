@@ -1,0 +1,133 @@
+{
+    "orgs": [
+        {
+            "name": "st",
+            "releases": [
+                {
+                    "names": [
+                        "Release-1.0"
+                    ],
+                    "buildNumber": 1,
+                    "hashId": "8bcd4983fd3d3c6f2ec2e638e22fc328c6e09be9"
+                }
+            ],
+            "latestRelease": {
+                "names": [
+                    "Release-1.0"
+                ],
+                "buildNumber": 1,
+                "hashId": "8bcd4983fd3d3c6f2ec2e638e22fc328c6e09be9"
+            },
+            "retryCount": 0
+        }
+    ],
+    "releases": [
+        {
+            "names": [
+                "Release-1.0"
+            ],
+            "buildNumber": 1,
+            "workItems": {},
+            "artifacts": [
+                {
+                    "name": "es-space-mgmt",
+                    "to": "67e1d372",
+                    "version": "1.0.0.7742049315",
+                    "latestCommitId": "97a14ab8",
+                    "commits": [
+                        {
+                            "commitId": "97a14ab8",
+                            "date": "2024-02-01T10:23:13+01:00",
+                            "author": "Manuel Moya Ferrer",
+                            "message": "feat: draft dxatscale baseline",
+                            "body": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "es-base-styles",
+                    "to": "67e1d372",
+                    "version": "1.0.0.7742049315",
+                    "latestCommitId": "97a14ab8",
+                    "commits": [
+                        {
+                            "commitId": "97a14ab8",
+                            "date": "2024-02-01T10:23:13+01:00",
+                            "author": "Manuel Moya Ferrer",
+                            "message": "feat: draft dxatscale baseline",
+                            "body": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "es-base-objects",
+                    "to": "67e1d372",
+                    "version": "1.0.0.7742049315",
+                    "latestCommitId": "97a14ab8",
+                    "commits": [
+                        {
+                            "commitId": "97a14ab8",
+                            "date": "2024-02-01T10:23:13+01:00",
+                            "author": "Manuel Moya Ferrer",
+                            "message": "feat: draft dxatscale baseline",
+                            "body": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "es-base-code",
+                    "to": "ce045953",
+                    "version": "1.0.0.7905273059",
+                    "latestCommitId": "cef7d1a8",
+                    "commits": [
+                        {
+                            "commitId": "cef7d1a8",
+                            "date": "2024-02-14T17:22:04+00:00",
+                            "author": "Manuel Moya",
+                            "message": "chore: test can be private",
+                            "body": ""
+                        },
+                        {
+                            "commitId": "97a14ab8",
+                            "date": "2024-02-01T10:23:13+01:00",
+                            "author": "Manuel Moya Ferrer",
+                            "message": "feat: draft dxatscale baseline",
+                            "body": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "data-sample-package",
+                    "to": "ce045953",
+                    "version": "1.0.0.7905273059",
+                    "latestCommitId": "ab709e39",
+                    "commits": [
+                        {
+                            "commitId": "ab709e39",
+                            "date": "2024-02-14T17:24:05+00:00",
+                            "author": "Manuel Moya",
+                            "message": "chore: update data package",
+                            "body": ""
+                        },
+                        {
+                            "commitId": "536d4bac",
+                            "date": "2024-02-09T14:13:03+00:00",
+                            "author": "Manuel",
+                            "message": "chore: update data package",
+                            "body": ""
+                        },
+                        {
+                            "commitId": "67e1d372",
+                            "date": "2024-02-01T14:30:48+01:00",
+                            "author": "Manuel Moya Ferrer",
+                            "message": "chore: add data package",
+                            "body": ""
+                        }
+                    ]
+                }
+            ],
+            "hashId": "8bcd4983fd3d3c6f2ec2e638e22fc328c6e09be9",
+            "date": "Wed Feb 14 2024 18:09:08 GMT+0000 (Coordinated Universal Time)"
+        }
+    ]
+}
