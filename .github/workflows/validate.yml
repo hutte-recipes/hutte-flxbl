@@ -53,7 +53,5 @@ jobs:
         run: |
           echo y | sf plugins install hutte #TODO: Use public Hutte Docker image in Github
           sf hutte pool take --api-token "${{ secrets.HUTTE_API_TOKEN }}" --json --wait
-          echo $(sf org display --json)
           poolOrgAlias=$(sf org display --json | jq -r '.result.alias')
-          echo $poolOrgAlias
           sfp orchestrator:validateAgainstOrg --targetorg $poolOrgAlias --devhubalias ${{ vars.DEV_HUB_ALIAS }}
