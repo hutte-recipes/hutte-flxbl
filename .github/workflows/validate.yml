@@ -42,8 +42,6 @@ jobs:
         run: |
           git config --global --add safe.directory /__w/hutte-dxatscale/hutte-dxatscale
           git remote -v
-          git remote add origin ${{ github.server_url }}/${{ github.repository }}
-          git config --get -f remote.origin.url
 
       - name: "Authenticate Dev Hub"
         run: |
