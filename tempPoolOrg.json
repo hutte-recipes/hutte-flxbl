@@ -1,0 +1,18 @@
+{
+  "status": 0,
+  "result": {
+    "id": "13bef922-91f2-4b1a-ba17-84290b517b5d",
+    "branchName": "pool-keep-dxatscale-recipe---14-feb-1406-1707919560",
+    "commitSha": "1b65b18c71073d52c5a91d0f433fa8409043faec",
+    "devhubId": "00D7Q000005YnCjUAK",
+    "devhubSfdxAuthUrl": "force://hutte:io:eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2FwaV90b2tlbiI6IndSckVlY3hld2NOd0dzVlF3RzNLQ3VIRyIsInByb2plY3RfaWQiOiI0MThiOTBmMS1hNDQzLTRiN2MtOWNkMi04YjlmZTYwYTc5OGYiLCJzY3JhdGNoX29yZ19pZCI6IjEzYmVmOTIyLTkxZjItNGIxYS1iYTE3LTg0MjkwYjUxN2I1ZCJ9.bYUODCXN_9jiFXBrHZNfpVTolkBlbtZATFUfmm-sPzI@api.hutte.io",
+    "name": "[Pool] (keep) dxatscale recipe - 14 Feb 14:06",
+    "projectId": "418b90f1-a443-4b7c-9cd2-8b9fe60a798f",
+    "projectName": "(keep) dxatscale recipe",
+    "remainingDays": null,
+    "revisionNumber": "205",
+    "sfdxAuthUrl": "force://3MVG96_7YM2sI9wR0M0vBzH9OoTs3jV0LO9QddPED5vzD76qHJ9D3k8mOFwkvzlvterYx88dif7FHbeGnMPyG:61006BF46216B031DAEBE84E08F7E9EF8B103C2A04C5A398479EEFEE41AC511B:5Aep861TOZx2uFTje60zX8KaSwPFmT0QqHLnZ6e7dp7Xxw6nDynVuvf1Mo4aDlwm9O95Ih2pP1cQgv3LUBdHT7m@saas-velocity-5982-dev-ed.scratch.my.salesforce.com",
+    "slug": "pool-keep-dxatscale-recipe---14-feb-1406"
+  },
+  "warnings": []
+}
