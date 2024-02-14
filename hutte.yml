@@ -4,6 +4,10 @@ push_script: |
   echo 'y' | npm i -g @dxatscale/sfpowerscripts
   echo y | sf plugins install sfdmu # Required when working with data packages
 
+  # Install sfpowerscripts-artifacts unlocked package
+  sf package install --package 04t1P000000ka9mQAA -u ${SALESFORCE_USERNAME} -w 10
+
+  # Build and deploy packages
   sfp orchestrator:quickbuild --devhubalias ${SALESFORCE_DEVHUB_USERNAME} --branch main --waittime 30
   sfp orchestrator:deploy -u ${SALESFORCE_USERNAME} --waittime 60 --enablesourcetracking
 
