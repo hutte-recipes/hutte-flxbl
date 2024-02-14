@@ -56,4 +56,4 @@ jobs:
           echo $(sf org display --json)
           poolOrgAlias=$(sf org display --json | jq -r '.result.alias')
           echo $poolOrgAlias
-          sfp orchestrator:validateAgainstOrg -u --targetorg $poolOrgAlias --devhubalias ${{ vars.DEV_HUB_ALIAS }}
+          sfp orchestrator:validateAgainstOrg --targetorg $poolOrgAlias --devhubalias ${{ vars.DEV_HUB_ALIAS }}
