@@ -29,21 +29,37 @@ This custom button will:
 
 ### An example by images
 
-Let's say that accounts are created in a Scratch Org
+1. Let's say that **accounts are created in a Scratch Org**
 
 <img src="./docs/images/data-and-metadata-changes-accounts-creation.png" alt="drawing" width="700"/>
 
-These can be then committed using the `Commit Data` custom button
+2. **These account records can be then committed using the `Commit Data` custom button**
 
 <img src="./docs/images/data-and-metadata-changes-1.png" alt="drawing" width="700"/>
 
-After that, the Pull Request validation will actually validate the updated data package
+3. After that, the **Pull Request validation will actually validate the updated data package**
 
 <img src="./docs/images/data-and-metadata-changes-3.png" alt="drawing" width="700"/>
 
 <img src="./docs/images/data-and-metadata-changes-2.png" alt="drawing" width="700"/>
 
-Finally, when the Pull Request is merged, a new data package will be published. This new data package will be provisioned to any new scratch org, as configured in [Hutte.yml](./hutte.yml).
+4. **Finally, when the Pull Request is merged, a new data package will be published. This new data package will be provisioned to any new scratch org**, as configured in [Hutte.yml](./hutte.yml).
+
+## ALM Automations
+
+Pull Request validations, deployments on Pull Request Merge, releases and other operations like these will be performed following the [DX@Scale template](https://github.com/dxatscale/dxatscale-template). Some screenshots of these can be seen below.
+
+- **Validations on Pull Request**
+
+<img src="./docs/images/validation-action-on-pull-request.png" alt="drawing" width="700"/>
+
+- **Build, deploy and packages publish on Merge of Pull Request**
+
+<img src="./docs/images/build-deploy-publish-on-merge.png" alt="drawing" width="700"/>
+
+- **Release to Production (and others)**
+
+<img src="./docs/images/release-on-user-demand.png" alt="drawing" width="700"/>
 
 ## Required Github Action Vars/Secrets
 
