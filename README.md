@@ -30,14 +30,18 @@ This custom button will:
 ### An example by images
 
 Let's say that accounts are created in a Scratch Org
-<img src="./docs/images/data-and-metadata-changes-accounts-creation.png" alt="drawing" width="200"/>
+
+<img src="./docs/images/data-and-metadata-changes-accounts-creation.png" alt="drawing" width="700"/>
 
 These can be then committed using the `Commit Data` custom button
-<img src="./docs/images/data-and-metadata-changes-1.png" alt="drawing" width="200"/>
+
+<img src="./docs/images/data-and-metadata-changes-1.png" alt="drawing" width="700"/>
 
 After that, the Pull Request validation will actually validate the updated data package
-<img src="./docs/images/data-and-metadata-changes-3.png" alt="drawing" width="200"/>
-<img src="./docs/images/data-and-metadata-changes-2.png" alt="drawing" width="200"/>
+
+<img src="./docs/images/data-and-metadata-changes-3.png" alt="drawing" width="700"/>
+
+<img src="./docs/images/data-and-metadata-changes-2.png" alt="drawing" width="700"/>
 
 Finally, when the Pull Request is merged, a new data package will be published. This new data package will be provisioned to any new scratch org, as configured in [Hutte.yml](./hutte.yml).
 
