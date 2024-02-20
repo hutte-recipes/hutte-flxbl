@@ -1,4 +1,4 @@
-# Internal .gitignore to avoid tracking SFDMU execution files that are not required for the DX@Scale package.
+# Internal .gitignore to avoid tracking SFDMU execution files that are not required for the Data package.
 
 *.log
 *target

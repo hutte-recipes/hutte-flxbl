@@ -1,10 +1,10 @@
-# DX@Scale CI/CD Template for GitHub
+# Flxbl CI/CD Template for GitHub
 #----------------------------------------------------------------------------------------------------
-# Maintained by @aly76 for DX@Scale
+# Maintained by @aly76 for Flxbl
 # Follows reference pipeline available at docs.dxatscale.io
 #
 #-----------------------------------------------------------------------------------------------------
-# To know more about dxatscale, visit https://docs.dxatscale.io
+# To know more about Flxbl, visit https://docs.dxatscale.io
 # To know more on sfpowerscripts, visit- https://docs.dxatscale.io/sfpowerscripts/sfpowerscripts
 
 # This pipeline builds on a release branch. Assumes you've cherry-picked a fix from master (thats been tested in DEV etc). Makes the change available for release

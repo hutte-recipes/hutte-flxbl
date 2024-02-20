@@ -14,7 +14,7 @@ push_script: |
 custom_scripts:
   scratch_org:
     "Commit Data":
-      description: "Pull Data and commit into the git branch. A dxatscale package will be created upon merge of the git branch."
+      description: "Pull Data and commit into the git branch. A package will be created upon merge of the git branch."
       run: |
         echo y | sf plugins install sfdmu
         cd src/data-sample-pkg 
@@ -26,7 +26,7 @@ custom_scripts:
         echo "Data Package has been updated in git. After merge of the Git branch, the provided Github Action will generate a new Data Package and deploy it to the specified environments."
   sandbox:
     "Commit Data":
-      description: "Pull Data and commit into the git branch. A dxatscale package will be created upon merge of the git branch."
+      description: "Pull Data and commit into the git branch. A package will be created upon merge of the git branch."
       run: |
         echo y | sf plugins install sfdmu
         cd src/data-sample-pkg 

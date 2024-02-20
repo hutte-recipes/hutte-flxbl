@@ -1,9 +1,9 @@
-# DX@Scale CI/CD Template for GitHub
+# Flxbl CI/CD Template for GitHub
 #----------------------------------------------------------------------------------------------------
 # Follows reference pipeline available at docs.dxatscale.io
 #
 #-----------------------------------------------------------------------------------------------------
-# To know more about dxatscale, visit https://docs.dxatscale.io
+# To know more about Flxbl, visit https://docs.dxatscale.io
 # To know more on sfpowerscripts, visit- https://docs.dxatscale.io/sfpowerscripts/sfpowerscripts
 
 # This pipeline is used to validate an incoming change using a dev environment fetched from the CI pool
@@ -48,7 +48,7 @@ jobs:
           git config --global --add safe.directory /__w/hutte-dxatscale/hutte-dxatscale
 
       # Validate source and trigger test
-      # Note: Using Hutte pool org rather than DX@Scale Pool
+      # Note: Using Hutte pool org rather than Flxbl Pool
       - name: "Push source to Hutte scratch org from pool"
         run: |
           echo y | sf plugins install hutte #TODO: Use public Hutte Docker image in Github
