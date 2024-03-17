@@ -42,17 +42,17 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: "Authenticate Dev Hub"
+      - name: Authenticate Dev Hub
         run: |
           echo "${{ secrets.DEVHUB_SFDX_AUTH_URL }}" > ./authfile
           sf org login sfdx-url  -f authfile -a devhub
 
-      - name: "Configure Git for Hutte CLI"
+      - name: Configure Git for Hutte CLI
         run: |
-          git config --global --add safe.directory /__w/hutte-dxatscale/hutte-dxatscale
+          git config --global --add safe.directory /__w/hutte-flxbl/hutte-flxbl
 
       # Note: Using Hutte pool org rather than Flxbl Pool
-      - name: "Push source to Hutte scratch org from pool"
+      - name: Push source to Hutte scratch org from pool
         run: |
           echo y | sf plugins install hutte
           sf hutte pool take --api-token "${{ secrets.HUTTE_API_TOKEN }}" --json --wait
