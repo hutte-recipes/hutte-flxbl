@@ -4,11 +4,11 @@
 #
 #-----------------------------------------------------------------------------------------------------
 # To know more about Flxbl, visit https://docs.dxatscale.io
-# To know more on sfpowerscripts, visit- https://docs.dxatscale.io/sfpowerscripts/sfpowerscripts
+# To know more on sfp, visit https://docs.flxbl.io/sfp
 
 # This pipeline is used to validate an incoming change using a dev environment fetched from the CI pool
 
-name: "PR Validation - Auto Triggered"
+name: Pull Request Validation
 
 on:
   pull_request:
@@ -19,22 +19,26 @@ on:
 
   workflow_dispatch:
 
-#Set the environment variables for tracking metrics
+# Set the environment variables for tracking metrics
 #env:
-#SFPOWERSCRIPTS_NEWRELIC: 'true'
-#SFPOWERSCRIPTS_NEWRELIC_API_KEY: '${{ secrets.NEWRELIC_INSIGHT_INSERT_KEYS }}'
-#SFPOWERSCRIPTS_DATADOG: 'true'
-#SFPOWERSCRIPTS_DATADOG_HOST: '${{ secrets.DATADOG_HOST }}'
-#SFPOWERSCRIPTS_DATADOG_API_KEY: '${{ secrets.DATADOG_API_KEY }}'
+# SFPOWERSCRIPTS_NEWRELIC: 'true'
+# SFPOWERSCRIPTS_NEWRELIC_API_KEY: '${{ secrets.NEWRELIC_INSIGHT_INSERT_KEYS }}'
+# SFPOWERSCRIPTS_DATADOG: 'true'
+# SFPOWERSCRIPTS_DATADOG_HOST: '${{ secrets.DATADOG_HOST }}'
+# SFPOWERSCRIPTS_DATADOG_API_KEY: '${{ secrets.DATADOG_API_KEY }}'
+# SFPOWERSCRIPTS_SPLUNK: 'true'
+# SFPOWERSCRIPTS_SPLUNK_HOST: '${{ secrets.SPLUNK_HOST }}'
+# SFPOWERSCRIPTS_SPLUNK_API_KEY: '${{ secrets.SPLUNK_API_KEY }}'
+
 
 jobs:
   validate:
     name: "Validate Changed Packages"
     runs-on: ubuntu-latest
-    container: ghcr.io/dxatscale/sfpowerscripts
+    container: ghcr.io/flxbl-io/sfp
 
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
         with:
           fetch-depth: 0
 
@@ -47,11 +51,10 @@ jobs:
         run: |
           git config --global --add safe.directory /__w/hutte-dxatscale/hutte-dxatscale
 
-      # Validate source and trigger test
       # Note: Using Hutte pool org rather than Flxbl Pool
       - name: "Push source to Hutte scratch org from pool"
         run: |
-          echo y | sf plugins install hutte #TODO: Use public Hutte Docker image in Github
+          echo y | sf plugins install hutte
           sf hutte pool take --api-token "${{ secrets.HUTTE_API_TOKEN }}" --json --wait
           poolOrgAlias=$(sf org display --json | jq -r '.result.alias')
-          sfp orchestrator:validateAgainstOrg --targetorg $poolOrgAlias --devhubalias ${{ vars.DEV_HUB_ALIAS }}
+          sfp validate org --targetorg $poolOrgAlias --devhubalias ${{ vars.DEV_HUB_ALIAS }}

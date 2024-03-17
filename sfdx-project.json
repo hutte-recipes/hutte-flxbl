@@ -5,7 +5,8 @@
 			"package": "es-base-objects",
 			"versionNumber": "1.0.0.0",
 			"default": false,
-			"type": "source"
+			"type": "source",
+			"isOptimizedDeployment": true
 		},
 		{
 			"path": "./src/es-base-code",
@@ -18,7 +19,8 @@
 					"versionNumber": "1.0.0.0"
 				}
 			],
-			"type": "source"
+			"type": "source",
+			"isOptimizedDeployment": true
 		},
 		{
 			"path": "./src/es-base-styles",
@@ -35,7 +37,8 @@
 					"versionNumber": "1.0.0.0"
 				}
 			],
-			"type": "source"
+			"type": "source",
+			"isOptimizedDeployment": true
 		},
 		{
 			"path": "./src/es-space-mgmt",
@@ -56,24 +59,23 @@
 					"versionNumber": "1.0.0.0"
 				}
 			],
-			"type": "source"
-		},
-		{
-			"path": "./src/src-temp",
-			"default": true
+			"type": "source",
+			"isOptimizedDeployment": true
 		},
 		{
 			"path": "./src/data-sample-pkg",
 			"package": "data-sample-package",
 			"versionNumber": "1.0.0.0",
 			"type": "data"
+		},
+		{
+			"path": "./src/src-temp",
+			"default": true
 		}
 	],
 	"namespace": "",
 	"sfdcLoginUrl": "https://login.salesforce.com",
-	"sourceApiVersion": "57.0",
-	"packageAliases": {
-        	"es-base-objects": ""
-    	},
+	"sourceApiVersion": "60.0",
+	"packageAliases": {},
 	"plugins": {}
 }

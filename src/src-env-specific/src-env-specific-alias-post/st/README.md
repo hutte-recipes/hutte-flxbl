@@ -1,1 +1,0 @@
-Env-Specific Metadata for ST environment that need to be installed at the begining 

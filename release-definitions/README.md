@@ -1,1 +1,1 @@
-This folder stores the release definition YAML files mapped to the sfpowerscripts:orchestrator:release path definition switch.  
+This folder stores the release definition YAML files mapped to the release path definition switch.

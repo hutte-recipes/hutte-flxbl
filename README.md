@@ -4,7 +4,7 @@
 
 _Note that Flxbl is the name for DX@Scale (more on [DX@Scale Becomes Flxbl](https://medium.com/flxbl/dx-scale-becomes-flxbl-%CB%88fleks%C9%99b-%C9%99-l-why-a9b12eb0f79b))_
 
-This recipe joins the best of the worlds of Flxbl (formerly DX@Scale) and Hutte. The recipe starts from the [Flxbl template](https://github.com/dxatscale/dxatscale-template) and it has been throughrously adapted to be used in combination with Hutte and therefore incorporating the best functionalities of Hutte platform in the different automations.
+This recipe joins the best of the worlds of Flxbl (formerly DX@Scale) and Hutte. The recipe starts from the [DX@Scale template](https://github.com/dxatscale/dxatscale-template), upgraded to the new rebranded CLI `sfp` and it has been throughrously adapted to be used in combination with Hutte and therefore incorporating the best functionalities of Hutte platform in the different automations.
 
 To showcase the combination of Hutte and Flxbl the [Easy-Spaces-LWC](https://github.com/trailheadapps/easy-spaces-lwc) application is added to this repository, which follows a modular archictecture.
 
@@ -63,7 +63,27 @@ Pull Request validations, deployments on Pull Request Merge, releases and other 
 
 <img src="./docs/images/release-on-user-demand.png" alt="drawing" width="700"/>
 
-## Required Github Action Vars/Secrets
+## Github Actions
+
+## Summary
+
+This repository contains the following YAML based Github Pipeline defintions
+
+- validate.yml
+
+Pull Request Validation Pipeline, that validates incoming changes against a scratch org fetched from the Hutte pool
+
+- build-publish.yml
+
+Pipeline that gets triggered on a merge to the trunk (main), resulting in building a set of packages and finally publishing these to the artifact repository.
+
+- release.yml
+
+A release pipeline that utilizes the release defintion to fetch artifacts from artifactory and then deploy to a sandbox.
+
+- release-build-publish.yml
+
+Triggered on a merge to a release/x branch. Assumes a change has been created/tested in main/dev (quickbuild-build-deploy.yml) and needs to be included in the release via a cherry-pick to the release branch. This builds and publishes off the relase branch making it available for the release pipeline.
 
 ### Github Secrets
 
@@ -73,6 +93,17 @@ Pull Request validations, deployments on Pull Request Merge, releases and other 
 - SIT_SFDX_AUTH_URL
 - ST_SFDX_AUTH_URL
 - DEV_SFDX_AUTH_URL
+
+Optionally, if you use a platform like Splunk, Datadog, or New Relic, configure the environment variables accordinly for `sfp` to send the metrics to these. Below is the environment variable name that `sfp` will expect. These will also require to be specified in the github action workflows (currently are there as placeholder commented).
+
+- SFPOWERSCRIPTS_NEWRELIC
+- SFPOWERSCRIPTS_NEWRELIC_API_KEY
+- SFPOWERSCRIPTS_DATADOG
+- SFPOWERSCRIPTS_DATADOG_HOST
+- SFPOWERSCRIPTS_DATADOG_API_KEY
+- SFPOWERSCRIPTS_SPLUNK
+- SFPOWERSCRIPTS_SPLUNK_HOST
+- SFPOWERSCRIPTS_SPLUNK_API_KEY
 
 ### Github Vars
 
@@ -98,4 +129,6 @@ In order to get more information about Flxbl implementation, you may find useful
 - [Flxbl docs](https://docs.dxatscale.io/)
 - [Flxbl template](https://github.com/dxatscale/dxatscale-template)
 - [Flxbl Guide](https://github.com/dxatscale/dxatscale-guide)
+- [Flxbl SFP CLI](https://docs.flxbl.io/sfp)
 - [DX@Scale Becomes Flxbl](https://medium.com/flxbl/dx-scale-becomes-flxbl-%CB%88fleks%C9%99b-%C9%99-l-why-a9b12eb0f79b)
+- [Flxbl Json Schemas](https://github.com/flxbl-io/json-schemas)

@@ -7,5 +7,5 @@ This document outlines the steps that are required to be run once in each enviro
 
       | Environment  | UserName                        | Email                    | 
       |--------------|---------------------------------|--------------------------|
-      | ST           |                                 |                          | 
       | SIT          |                                 |                          | 
+      | UAT          |                                 |                          | 
