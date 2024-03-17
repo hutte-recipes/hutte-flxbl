@@ -9,7 +9,7 @@
 # This workflow builds and publishes packages to artifact repository.
 # Note that while using Hutte, new scratch orgs after this workflow will come with the newly published packages installed.
 
-name: 'Build & Publish'
+name: Build & Publish
 
 on:
   push:
@@ -34,8 +34,6 @@ jobs:
     name: Build and Publish
     runs-on: ubuntu-latest
     container: ghcr.io/flxbl-io/sfp
-    needs: deploy
-    concurrency: build
     if: github.ref == 'refs/heads/main'
     steps:
       - uses: actions/checkout@v4
