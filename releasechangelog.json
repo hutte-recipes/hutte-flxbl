@@ -43,14 +43,21 @@
                     ],
                     "buildNumber": 2,
                     "hashId": "f1d7aaa06878db5a9ddec6d34b3482c36f07cfd2"
+                },
+                {
+                    "names": [
+                        "Release-1.0"
+                    ],
+                    "buildNumber": 3,
+                    "hashId": "3e060afce8876013fb38797b847ddf9dfc068a9e"
                 }
             ],
             "latestRelease": {
                 "names": [
                     "Release-1.0"
                 ],
-                "buildNumber": 2,
-                "hashId": "f1d7aaa06878db5a9ddec6d34b3482c36f07cfd2"
+                "buildNumber": 3,
+                "hashId": "3e060afce8876013fb38797b847ddf9dfc068a9e"
             },
             "retryCount": 0
         },
@@ -253,6 +260,85 @@
             ],
             "hashId": "f1d7aaa06878db5a9ddec6d34b3482c36f07cfd2",
             "date": "Wed Feb 14 2024 18:22:23 GMT+0000 (Coordinated Universal Time)"
+        },
+        {
+            "names": [
+                "Release-1.0"
+            ],
+            "buildNumber": 3,
+            "workItems": {},
+            "artifacts": [
+                {
+                    "name": "es-space-mgmt",
+                    "from": "8c88d681",
+                    "to": "b1153bff",
+                    "version": "1.0.0.8379704939",
+                    "repoUrl": "https://github.com/hutte-recipes/hutte-flxbl",
+                    "latestCommitId": "97a14ab8",
+                    "commits": []
+                },
+                {
+                    "name": "es-base-styles",
+                    "from": "8c88d681",
+                    "to": "b1153bff",
+                    "version": "1.0.0.8379704939",
+                    "repoUrl": "https://github.com/hutte-recipes/hutte-flxbl",
+                    "latestCommitId": "97a14ab8",
+                    "commits": []
+                },
+                {
+                    "name": "es-base-objects",
+                    "from": "8c88d681",
+                    "to": "b1153bff",
+                    "version": "1.0.0.8379704939",
+                    "repoUrl": "https://github.com/hutte-recipes/hutte-flxbl",
+                    "latestCommitId": "97a14ab8",
+                    "commits": []
+                },
+                {
+                    "name": "es-base-code",
+                    "from": "8c88d681",
+                    "to": "b1153bff",
+                    "version": "1.0.0.8379704939",
+                    "repoUrl": "https://github.com/hutte-recipes/hutte-flxbl",
+                    "latestCommitId": "01eee3c2",
+                    "commits": [
+                        {
+                            "commitId": "01eee3c2",
+                            "date": "2024-03-17T18:51:44+00:00",
+                            "author": "Manuel Moya",
+                            "message": "ci: mock change",
+                            "body": ""
+                        },
+                        {
+                            "commitId": "48b36283",
+                            "date": "2024-03-17T19:49:07+01:00",
+                            "author": "Manuel Moya Ferrer",
+                            "message": "fix: duplicated class",
+                            "body": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "data-sample-package",
+                    "from": "8c88d681",
+                    "to": "b1153bff",
+                    "version": "1.0.0.8379704939",
+                    "repoUrl": "https://github.com/hutte-recipes/hutte-flxbl",
+                    "latestCommitId": "b0459d45",
+                    "commits": [
+                        {
+                            "commitId": "b0459d45",
+                            "date": "2024-02-20T16:43:44+01:00",
+                            "author": "Manuel Moya Ferrer",
+                            "message": "docs: dxatscale becomes Flxbl",
+                            "body": ""
+                        }
+                    ]
+                }
+            ],
+            "hashId": "3e060afce8876013fb38797b847ddf9dfc068a9e",
+            "date": "Thu Mar 21 2024 18:24:12 GMT+0000 (Coordinated Universal Time)"
         }
     ]
 }
