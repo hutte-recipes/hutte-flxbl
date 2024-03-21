@@ -99,8 +99,7 @@ jobs:
 
       - name: "Deploy to SIT"
         run: |
-          sfp dependency:install -u sit -v devhub
-          sfp orchestrator:deploy -u sit  --skipifalreadyinstalled -g "::group::,::endgroup::"
+          sfp install --targetorg sit  --skipifalreadyinstalled -g "::group::,::endgroup::" --waittime 180
 
   deployUat:
     name: Deploy to UAT
@@ -133,5 +132,4 @@ jobs:
 
       - name: "Deploy to UAT"
         run: |
-          sfp dependency:install -u uat -v devhub
-          sfp orchestrator:deploy -u uat  --skipifalreadyinstalled -g "::group::,::endgroup::"
+          sfp install --targetorg uat  --skipifalreadyinstalled -g "::group::,::endgroup::" --waittime 180
