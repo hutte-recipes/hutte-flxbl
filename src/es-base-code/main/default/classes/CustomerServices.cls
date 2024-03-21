@@ -1,7 +1,9 @@
 public inherited sharing class CustomerServices {
     @auraEnabled(cacheable=true)
     public static Customer getCustomerFields(String objectType) {
+
         Customer customer;
+
         for (Customer_Fields__mdt c : [
             SELECT
                 Customer_Name__r.QualifiedAPIName,
