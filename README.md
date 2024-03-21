@@ -2,9 +2,9 @@
 
 ## Introduction
 
-_Note that Flxbl is the name for DX@Scale (more on [DX@Scale Becomes Flxbl](https://medium.com/flxbl/dx-scale-becomes-flxbl-%CB%88fleks%C9%99b-%C9%99-l-why-a9b12eb0f79b))_
+_Note that Flxbl is the new brand for DX@Scale (more on [DX@Scale Becomes Flxbl](https://medium.com/flxbl/dx-scale-becomes-flxbl-%CB%88fleks%C9%99b-%C9%99-l-why-a9b12eb0f79b))_
 
-This recipe joins the best of the worlds of Flxbl (formerly DX@Scale) and Hutte. The recipe starts from the [DX@Scale template](https://github.com/dxatscale/dxatscale-template), upgraded to the new rebranded CLI `sfp` and it has been throughrously adapted to be used in combination with Hutte and therefore incorporating the best functionalities of Hutte platform in the different automations.
+This recipe joins the best of the worlds of Flxbl (formerly DX@Scale) and Hutte. The recipe starts from the [Flxbl(DX@Scale) template](https://github.com/dxatscale/dxatscale-template), upgraded to the newly created CLI `sfp` and it has been throughrously adapted to be used in combination with Hutte and therefore incorporating the best functionalities of Hutte platform in the different automations.
 
 To showcase the combination of Hutte and Flxbl the [Easy-Spaces-LWC](https://github.com/trailheadapps/easy-spaces-lwc) application is added to this repository, which follows a modular archictecture.
 
@@ -24,7 +24,7 @@ A hutte custom button has been created in order to update a Flxbl data package o
 This custom button will:
 
 1. Commit data changes to the git branch
-2. When the Pull Request is merged, the triggered Github action will
+2. When the Pull Request is merged, a Github action will automatically run and:
    1. Create a new Flxbl data package (specified in the [sfdx-project.json](./sfdx-project.json))
    2. Publish it as an Package in the Github Repository
 3. When a new scratch/sandbox org is created, the configured script in [Hutte.yml](hutte.yml) will deploy the new data package to the recently created org and therefore having the data seed happening automatically.
@@ -39,7 +39,7 @@ This custom button will:
 
 <img src="./docs/images/data-and-metadata-changes-1.png" alt="drawing" width="700"/>
 
-3. After that, the **Pull Request validation will actually validate the updated data package**
+3. After that, a Pull Request can be created from Hutte, and the created **Pull Request will automatically validate the updated data package against the next org**
 
 <img src="./docs/images/data-and-metadata-changes-3.png" alt="drawing" width="700"/>
 
@@ -51,19 +51,25 @@ This custom button will:
 
 Pull Request validations, deployments on Pull Request Merge, releases and other operations like these will be performed following the [Flxbl template](https://github.com/dxatscale/dxatscale-template). Some screenshots of these can be seen below.
 
-- **Validations on Pull Request**
+- **Automated Validations on Pull Request**
 
 <img src="./docs/images/validation-action-on-pull-request.png" alt="drawing" width="700"/>
 
-- **Build, deploy and packages publish on Merge of Pull Request**
+- **Build, publish and deploy packages publish on Merge of Pull Request. Deployment is automatically performed to SIT and UAT**
 
 <img src="./docs/images/build-deploy-publish-on-merge.png" alt="drawing" width="700"/>
+
+<img src="./docs/images/build-deploy-publish-on-merge-2.png" alt="drawing" width="700"/>
+
+<img src="./docs/images/build-deploy-publish-on-merge-3.png" alt="drawing" width="700"/>
 
 - **Release to Production (and others)**
 
 <img src="./docs/images/release-on-user-demand.png" alt="drawing" width="700"/>
 
 ## Github Actions
+
+<img src="./docs/images/github-actions.png" alt="drawing" width="700"/>
 
 ## Summary
 
@@ -92,7 +98,6 @@ Triggered on a merge to a release/x branch. Assumes a change has been created/te
 - UAT_SFDX_AUTH_URL
 - SIT_SFDX_AUTH_URL
 - ST_SFDX_AUTH_URL
-- DEV_SFDX_AUTH_URL
 
 Optionally, if you use a platform like Splunk, Datadog, or New Relic, configure the environment variables accordinly for `sfp` to send the metrics to these. Below is the environment variable name that `sfp` will expect. These will also require to be specified in the github action workflows (currently are there as placeholder commented).
 
