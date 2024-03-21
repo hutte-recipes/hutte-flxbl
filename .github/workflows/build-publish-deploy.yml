@@ -9,7 +9,7 @@
 # This workflow builds and publishes packages to artifact repository.
 # Note that while using Hutte, new scratch orgs after this workflow will come with the newly published packages installed.
 
-name: Build & Publish
+name: Build & Publish & Deploy
 
 on:
   push:
