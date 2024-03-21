@@ -22,6 +22,7 @@ public inherited sharing class CustomerServices {
                 ''
             );
         }
+
         return customer;
     }
 
