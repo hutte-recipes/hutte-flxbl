@@ -69,7 +69,7 @@ Pull Request validations, deployments on Pull Request Merge, releases and other 
 
 ## Github Actions
 
-<img src="./docs/images/github-actions.png" alt="drawing" width="700"/>
+<img src="./docs/images/github-actions.png" alt="drawing" width="300"/>
 
 ## Summary
 
