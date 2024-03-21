@@ -79,9 +79,9 @@ This repository contains the following YAML based Github Pipeline defintions
 
 Pull Request Validation Pipeline, that validates incoming changes against a scratch org fetched from the Hutte pool
 
-- build-publish.yml
+- build-publish-deploy.yml
 
-Pipeline that gets triggered on a merge to the trunk (main), resulting in building a set of packages and finally publishing these to the artifact repository.
+Pipeline that gets triggered on a merge to the trunk (main), resulting in building a set of packages, publishing these to the artifact repository and finally deploying them to the SIT and UAT salesforce orgs.
 
 - release.yml
 
@@ -89,15 +89,14 @@ A release pipeline that utilizes the release defintion to fetch artifacts from a
 
 - release-build-publish.yml
 
-Triggered on a merge to a release/x branch. Assumes a change has been created/tested in main/dev (quickbuild-build-deploy.yml) and needs to be included in the release via a cherry-pick to the release branch. This builds and publishes off the relase branch making it available for the release pipeline.
+Triggered on a merge to a release/x branch. Assumes a change has been created/tested in main/dev and needs to be included in the release via a cherry-pick to the release branch. This builds and publishes off the relase branch making it available for the release pipeline.
 
 ### Github Secrets
 
 - HUTTE_API_TOKEN (Can be found in the profile settings of the Hutte user)
 - DEVHUB_SFDX_AUTH_URL
-- UAT_SFDX_AUTH_URL
 - SIT_SFDX_AUTH_URL
-- ST_SFDX_AUTH_URL
+- UAT_SFDX_AUTH_URL
 
 Optionally, if you use a platform like Splunk, Datadog, or New Relic, configure the environment variables accordinly for `sfp` to send the metrics to these. Below is the environment variable name that `sfp` will expect. These will also require to be specified in the github action workflows (currently are there as placeholder commented).
 
