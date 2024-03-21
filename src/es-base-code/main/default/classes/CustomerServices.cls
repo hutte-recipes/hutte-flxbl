@@ -11,7 +11,7 @@ public inherited sharing class CustomerServices {
                 Customer_Status__r.QualifiedAPIName
             FROM Customer_Fields__mdt
             WHERE Sobject_Type__r.QualifiedAPIName = :objectType
-            //WITH SECURITY_ENFORCED 
+            //WITH SECURITY_ENFORCED
         ]) {
             customer = new Customer(
                 c.Customer_Name__r.QualifiedAPIName,
