@@ -85,7 +85,7 @@ Pipeline that gets triggered on a merge to the trunk (main), resulting in buildi
 
 - release.yml
 
-A release pipeline that utilizes the release defintion to fetch artifacts from artifactory and then deploy to a sandbox.
+A release pipeline that utilizes the release definition to fetch artifacts from artifactory and then deploy to a sandbox.
 
 - release-build-publish.yml
 
