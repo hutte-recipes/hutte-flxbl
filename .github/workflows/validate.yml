@@ -30,7 +30,6 @@ on:
 # SFPOWERSCRIPTS_SPLUNK_HOST: '${{ secrets.SPLUNK_HOST }}'
 # SFPOWERSCRIPTS_SPLUNK_API_KEY: '${{ secrets.SPLUNK_API_KEY }}'
 
-
 jobs:
   validate:
     name: "Validate Changed Packages"
@@ -57,4 +56,4 @@ jobs:
           echo y | sf plugins install hutte
           sf hutte pool take --api-token "${{ secrets.HUTTE_API_TOKEN }}" --json --wait
           poolOrgAlias=$(sf org display --json | jq -r '.result.alias')
-          sfp validate org --targetorg $poolOrgAlias --devhubalias ${{ vars.DEV_HUB_ALIAS }}
+          sfp validate org --targetorg $poolOrgAlias --devhubalias ${{ vars.DEV_HUB_ALIAS }} --disablesourcepkgoverride --disableparalleltesting
