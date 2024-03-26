@@ -4,7 +4,7 @@
 
 _Note that Flxbl is the new brand for DX@Scale (more on [DX@Scale Becomes Flxbl](https://medium.com/flxbl/dx-scale-becomes-flxbl-%CB%88fleks%C9%99b-%C9%99-l-why-a9b12eb0f79b))_
 
-This recipe joins the best of the worlds of Flxbl (formerly DX@Scale) and Hutte. The recipe starts from the [Flxbl(DX@Scale) template](https://github.com/dxatscale/dxatscale-template), upgraded to the newly created CLI `sfp` and it has been throughrously adapted to be used in combination with Hutte and therefore incorporating the best functionalities of Hutte platform in the different automations.
+This Hutte recipe joins the best of the worlds of Flxbl (formerly DX@Scale) and Hutte.
 
 To showcase the combination of Hutte and Flxbl the [Easy-Spaces-LWC](https://github.com/trailheadapps/easy-spaces-lwc) application is added to this repository, which follows a modular archictecture.
 
@@ -48,8 +48,6 @@ This custom button will:
 4. **Finally, when the Pull Request is merged, a new data package will be published. This new data package will be provisioned to any new scratch org**, as configured in [Hutte.yml](./hutte.yml).
 
 ## ALM Automations
-
-Pull Request validations, deployments on Pull Request Merge, releases and other operations like these will be performed following the [Flxbl template](https://github.com/dxatscale/dxatscale-template). Some screenshots of these can be seen below.
 
 - **Automated Validations on Pull Request**
 
@@ -131,7 +129,6 @@ Optionally, if you use a platform like Splunk, Datadog, or New Relic, configure 
 In order to get more information about Flxbl implementation, you may find useful the next links
 
 - [Flxbl docs](https://docs.dxatscale.io/)
-- [Flxbl template](https://github.com/dxatscale/dxatscale-template)
 - [Flxbl Guide](https://github.com/dxatscale/dxatscale-guide)
 - [Flxbl SFP CLI](https://docs.flxbl.io/sfp)
 - [DX@Scale Becomes Flxbl](https://medium.com/flxbl/dx-scale-becomes-flxbl-%CB%88fleks%C9%99b-%C9%99-l-why-a9b12eb0f79b)
