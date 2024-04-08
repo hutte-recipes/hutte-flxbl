@@ -13,12 +13,6 @@
 			"package": "es-base-code",
 			"versionNumber": "1.0.0.0",
 			"default": false,
-			"dependencies": [
-				{
-					"package": "es-base-objects",
-					"versionNumber": "1.0.0.0"
-				}
-			],
 			"type": "source",
 			"isOptimizedDeployment": true
 		},
@@ -27,16 +21,6 @@
 			"package": "es-base-styles",
 			"versionNumber": "1.0.0.0",
 			"default": false,
-			"dependencies": [
-				{
-					"package": "es-base-objects",
-					"versionNumber": "1.0.0.0"
-				},
-				{
-					"package": "es-base-code",
-					"versionNumber": "1.0.0.0"
-				}
-			],
 			"type": "source",
 			"isOptimizedDeployment": true
 		},
@@ -45,20 +29,6 @@
 			"package": "es-space-mgmt",
 			"versionNumber": "1.0.0.0",
 			"default": false,
-			"dependencies": [
-				{
-					"package": "es-base-objects",
-					"versionNumber": "1.0.0.0"
-				},
-				{
-					"package": "es-base-code",
-					"versionNumber": "1.0.0.0"
-				},
-				{
-					"package": "es-base-styles",
-					"versionNumber": "1.0.0.0"
-				}
-			],
 			"type": "source",
 			"isOptimizedDeployment": true
 		},
@@ -76,6 +46,5 @@
 	"namespace": "",
 	"sfdcLoginUrl": "https://login.salesforce.com",
 	"sourceApiVersion": "60.0",
-	"packageAliases": {},
 	"plugins": {}
 }

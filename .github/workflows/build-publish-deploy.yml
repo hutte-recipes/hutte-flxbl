@@ -45,8 +45,7 @@ jobs:
       - name: Build packages
         id: sfpowerscripts-build
         run: |
-          # TODO: quickbuild used instead of build, to be fixed in dxatscale, at the moment source packages cannot have dependencies to other source packages
-          sfp quickbuild --devhubalias devhub --diffcheck --buildnumber ${GITHUB_RUN_ID} --branch ${GITHUB_REF#refs/heads/} --waittime 180
+          sfp build --devhubalias devhub --diffcheck --buildnumber ${GITHUB_RUN_ID} --branch ${GITHUB_REF#refs/heads/} --waittime 180
 
       # Publish artifacts
       - uses: actions/upload-artifact@v2

@@ -47,7 +47,7 @@ jobs:
         id: sfpowerscripts-build
         run: |
           # Note: Temporarily disabling --diffcheck for debugging
-          sfp quickbuild --devhubalias devhub --branch ${GITHUB_REF#refs/heads/} --buildnumber ${GITHUB_RUN_ID} --waittime 180
+          sfp build --devhubalias devhub --diffcheck --branch ${GITHUB_REF#refs/heads/} --buildnumber ${GITHUB_RUN_ID} --waittime 180
 
       # Publish artifacts
       - uses: actions/upload-artifact@v2
