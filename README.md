@@ -111,6 +111,22 @@ Optionally, if you use a platform like Splunk, Datadog, or New Relic, configure 
 
 - DEV_HUB_ALIAS
 
+## VSCode Presets
+
+Incorporated from [Hutte Project Template](https://github.com/hutte-recipes/hutte-project-template)
+
+- VSCode pre-build settings for editor, PMD and prettier
+- VSCode set of recommended extension for Salesforce development
+
+## Code Quality Tools Configuration
+
+Incorporated from [Hutte Project Template](https://github.com/hutte-recipes/hutte-project-template)
+
+- Prettier baseline configuration
+- PMD baseline configuration
+- ESLint baseline configuration
+- Precommit Husky hook configured with prettier formating
+
 ## Setup
 
 1. Create a repository from this template using the Github `Use this template` button

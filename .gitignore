@@ -5,3 +5,5 @@ artifacts
 .npmrc
 buildResult.json
 *.log
+logs
+node_modules
