@@ -111,6 +111,22 @@ Optionally, if you use a platform like Splunk, Datadog, or New Relic, configure 
 
 - DEV_HUB_ALIAS
 
+## VSCode Presets
+
+These are imported from the [Hutte Project Template](https://github.com/hutte-recipes/hutte-project-template) recipe.
+
+- VSCode pre-build settings for editor, PMD and prettier
+- VSCode set of recommended extension for Salesforce development
+
+## Code Quality Tools Configuration
+
+These are imported from the [Hutte Project Template](https://github.com/hutte-recipes/hutte-project-template) recipe.
+
+- Prettier baseline configuration
+- PMD baseline configuration
+- ESLint baseline configuration
+- Precommit Husky hook configured with prettier formating
+
 ## Setup
 
 1. Create a repository from this template using the Github `Use this template` button
@@ -133,3 +149,7 @@ In order to get more information about Flxbl implementation, you may find useful
 - [Flxbl SFP CLI](https://docs.flxbl.io/sfp)
 - [DX@Scale Becomes Flxbl](https://medium.com/flxbl/dx-scale-becomes-flxbl-%CB%88fleks%C9%99b-%C9%99-l-why-a9b12eb0f79b)
 - [Flxbl Json Schemas](https://github.com/flxbl-io/json-schemas)
+
+------------------------
+
+Please check https://docs.hutte.io in order to learn more about setting up and using Hutte.

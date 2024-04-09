@@ -1,0 +1,13 @@
+*.xml
+*.cls
+*.html
+*.auradoc
+*.cmp
+*.css
+*.design
+*.evt
+*.json
+*.svg
+*.tokens
+*.app
+.sfdx
