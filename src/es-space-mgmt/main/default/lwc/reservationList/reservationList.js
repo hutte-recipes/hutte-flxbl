@@ -4,13 +4,7 @@ import getOpenReservations from '@salesforce/apex/reservationManagerController.g
 
 import TILE_SELECTION_MC from '@salesforce/messageChannel/Tile_Selection__c';
 import FLOW_STATUS_CHANGE_MC from '@salesforce/messageChannel/Flow_Status_Change__c';
-import {
-    subscribe,
-    unsubscribe,
-    APPLICATION_SCOPE,
-    MessageContext,
-    publish
-} from 'lightning/messageService';
+import { subscribe, unsubscribe, APPLICATION_SCOPE, MessageContext, publish } from 'lightning/messageService';
 
 export default class ReservationList extends LightningElement {
     wiredResult;
@@ -42,10 +36,7 @@ export default class ReservationList extends LightningElement {
     }
 
     handleMessage(message) {
-        if (
-            message.flowName === 'spaceDesigner' &&
-            message.status === 'FINISHED'
-        ) {
+        if (message.flowName === 'spaceDesigner' && message.status === 'FINISHED') {
             refreshApex(this.wiredResult);
         }
     }

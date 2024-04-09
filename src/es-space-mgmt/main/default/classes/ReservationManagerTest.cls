@@ -23,28 +23,21 @@ private class ReservationManagerTest {
         Lead lead = [SELECT Id FROM Lead LIMIT 1];
         ReservationManager.Requests request = new ReservationManager.Requests();
         request.recordId = lead.Id;
-        List<Id> lstIds = ReservationManager.updateReservationStatus(
-            new List<ReservationManager.Requests>{ request }
-        );
+        List<Id> lstIds = ReservationManager.updateReservationStatus(new List<ReservationManager.Requests>{ request });
         List<Customer_Fields__mdt> lstcmdts = [
-            SELECT
-                Customer_Status__r.QualifiedAPIName,
-                Customer_Reservation_Status_Value__c
+            SELECT Customer_Status__r.QualifiedAPIName, Customer_Reservation_Status_Value__c
             FROM Customer_Fields__mdt
             WHERE Sobject_Type__r.QualifiedAPIName = 'Lead'
             LIMIT 1
         ];
-            // WITH SECURITY_ENFORCED
+        // WITH SECURITY_ENFORCED
         Lead updatedLeadRecord = [
             SELECT Id, Status
             FROM Lead
             WHERE Id = :lstIds[0]
             LIMIT 1
         ];
-        System.assertEquals(
-            lstcmdts[0].Customer_Reservation_Status_Value__c,
-            updatedLeadRecord.Status
-        );
+        System.assertEquals(lstcmdts[0].Customer_Reservation_Status_Value__c, updatedLeadRecord.Status);
     }
 
     @isTest
@@ -52,18 +45,14 @@ private class ReservationManagerTest {
         Contact contact = [SELECT Id FROM Contact LIMIT 1];
         ReservationManager.Requests request = new ReservationManager.Requests();
         request.recordId = contact.Id;
-        List<Id> lstIds = ReservationManager.updateReservationStatus(
-            new List<ReservationManager.Requests>{ request }
-        );
+        List<Id> lstIds = ReservationManager.updateReservationStatus(new List<ReservationManager.Requests>{ request });
         List<Customer_Fields__mdt> lstcmdts = [
-            SELECT
-                Customer_Status__r.QualifiedAPIName,
-                Customer_Reservation_Status_Value__c
+            SELECT Customer_Status__r.QualifiedAPIName, Customer_Reservation_Status_Value__c
             FROM Customer_Fields__mdt
             WHERE Sobject_Type__r.QualifiedAPIName = 'Contact'
             LIMIT 1
         ];
-//             WITH SECURITY_ENFORCED
+        //             WITH SECURITY_ENFORCED
         Contact updatedContactRecord = [
             SELECT Id, Reservation_Status__c
             FROM Contact
@@ -74,6 +63,6 @@ private class ReservationManagerTest {
         //     lstcmdts[0].Customer_Reservation_Status_Value__c,
         //     updatedContactRecord.Reservation_Status__c
         // );
-System.assert(true);
+        System.assert(true);
     }
 }

@@ -101,8 +101,7 @@
         <versionNumber>1</versionNumber>
     </promptVersions>
     <promptVersions>
-        <body
-        >User is navigated to a subtab that displays reservation record details.</body>
+        <body>User is navigated to a subtab that displays reservation record details.</body>
         <customApplication>Space_Management</customApplication>
         <dismissButtonLabel>Close</dismissButtonLabel>
         <displayPosition>TopRight</displayPosition>

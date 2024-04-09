@@ -16,9 +16,7 @@ export default class ReservationTile extends NavigationMixin(LightningElement) {
                 actionName: 'view'
             }
         };
-        this[NavigationMixin.GenerateUrl](this.reservationRecordRef).then(
-            (url) => (this.navRef = url)
-        );
+        this[NavigationMixin.GenerateUrl](this.reservationRecordRef).then((url) => (this.navRef = url));
     }
 
     handleTileClick() {

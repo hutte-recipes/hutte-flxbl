@@ -9,11 +9,11 @@
 name: Release Build & Publish
 
 on:
-  push:
-    branches:
-      - release/**
+    push:
+        branches:
+            - release/**
 
-  workflow_dispatch:
+    workflow_dispatch:
 
 # Set the environment variables for tracking metrics
 #env:
@@ -27,42 +27,42 @@ on:
 # SFPOWERSCRIPTS_SPLUNK_API_KEY: '${{ secrets.SPLUNK_API_KEY }}'
 
 jobs:
-  buildAndPublish:
-    name: Build and Publish
-    runs-on: ubuntu-latest
-    container: ghcr.io/flxbl-io/sfp
-    concurrency: build
-    if: contains(github.ref,'release') || github.ref == 'refs/heads/release/**'
-    steps:
-      - uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
+    buildAndPublish:
+        name: Build and Publish
+        runs-on: ubuntu-latest
+        container: ghcr.io/flxbl-io/sfp
+        concurrency: build
+        if: contains(github.ref,'release') || github.ref == 'refs/heads/release/**'
+        steps:
+            - uses: actions/checkout@v4
+              with:
+                  fetch-depth: 0
 
-      - name: Authenticate Dev Hub
-        run: |
-          echo "${{ secrets.DEVHUB_SFDX_AUTH_URL }}" > ./authfile
-          sf org login sfdx-url  -f authfile -a devhub
+            - name: Authenticate Dev Hub
+              run: |
+                  echo "${{ secrets.DEVHUB_SFDX_AUTH_URL }}" > ./authfile
+                  sf org login sfdx-url  -f authfile -a devhub
 
-      - name: Create packages
-        id: sfpowerscripts-build
-        run: |
-          # Note: Temporarily disabling --diffcheck for debugging
-          sfp build --devhubalias devhub --diffcheck --branch ${GITHUB_REF#refs/heads/} --buildnumber ${GITHUB_RUN_ID} --waittime 180
+            - name: Create packages
+              id: sfpowerscripts-build
+              run: |
+                  # Note: Temporarily disabling --diffcheck for debugging
+                  sfp build --devhubalias devhub --diffcheck --branch ${GITHUB_REF#refs/heads/} --buildnumber ${GITHUB_RUN_ID} --waittime 180
 
-      # Publish artifacts
-      - uses: actions/upload-artifact@v2
-        with:
-          node-version: "16.x"
-          name: build-artifacts
-          path: artifacts
+            # Publish artifacts
+            - uses: actions/upload-artifact@v2
+              with:
+                  node-version: '16.x'
+                  name: build-artifacts
+                  path: artifacts
 
-      - uses: actions/setup-node@v3
-        with:
-          registry-url: "https://npm.pkg.github.com"
-          scope: "@${{ github.repository_owner }}"
+            - uses: actions/setup-node@v3
+              with:
+                  registry-url: 'https://npm.pkg.github.com'
+                  scope: '@${{ github.repository_owner }}'
 
-      - name: Publish
-        run: |
-          sfp publish --artifactdir artifacts --npm --scope @${{ github.repository_owner }}  --gittag --pushgittag
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+            - name: Publish
+              run: |
+                  sfp publish --artifactdir artifacts --npm --scope @${{ github.repository_owner }}  --gittag --pushgittag
+              env:
+                  NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}

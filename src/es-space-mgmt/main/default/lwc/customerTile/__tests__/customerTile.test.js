@@ -38,12 +38,8 @@ describe('c-customer-tile', () => {
         expect(linkEl.textContent).toBe(CUSTOMER_DETAILS.name);
 
         const pElements = element.shadowRoot.querySelectorAll('p');
-        expect(pElements[0].textContent).toBe(
-            `Status: ${CUSTOMER_DETAILS.status}`
-        );
-        expect(pElements[1].textContent).toBe(
-            `Email: ${CUSTOMER_DETAILS.email}`
-        );
+        expect(pElements[0].textContent).toBe(`Status: ${CUSTOMER_DETAILS.status}`);
+        expect(pElements[1].textContent).toBe(`Email: ${CUSTOMER_DETAILS.email}`);
     });
 
     it('displays the correct icon in the tile', () => {

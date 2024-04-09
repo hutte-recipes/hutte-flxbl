@@ -53,11 +53,7 @@ describe('c-reservation-helper', () => {
 
         return Promise.resolve().then(() => {
             // Was publish called and was it called with the correct params?
-            expect(publish).toHaveBeenCalledWith(
-                undefined,
-                FLOW_STATUS_CHANGE_MC,
-                LMS_PAYLOAD
-            );
+            expect(publish).toHaveBeenCalledWith(undefined, FLOW_STATUS_CHANGE_MC, LMS_PAYLOAD);
         });
     });
 
@@ -80,17 +76,14 @@ describe('c-reservation-helper', () => {
         return Promise.resolve().then(() => {
             // Validate if event got fired
             expect(handler).toHaveBeenCalled();
-            expect(handler.mock.calls[0][0].detail).toEqual(
-                MESSAGE_PAYLOAD.properties
-            );
+            expect(handler.mock.calls[0][0].detail).toEqual(MESSAGE_PAYLOAD.properties);
         });
     });
 
     it('fires a toast message when a flow interview is already in progress', () => {
         const TOAST_DETAIL = {
             title: 'Flow interview already in progress',
-            message:
-                'Finish the flow interview in progress before selecting another customer.',
+            message: 'Finish the flow interview in progress before selecting another customer.',
             variant: 'error'
         };
 
@@ -124,9 +117,7 @@ describe('c-reservation-helper', () => {
             .then(() => {
                 // Validate that the toast message does fire for the second TILE_SELECTION_MC event
                 expect(handler).toHaveBeenCalled();
-                expect(handler.mock.calls[0][0].detail).toStrictEqual(
-                    TOAST_DETAIL
-                );
+                expect(handler.mock.calls[0][0].detail).toStrictEqual(TOAST_DETAIL);
             });
     });
 

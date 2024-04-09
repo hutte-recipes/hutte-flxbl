@@ -4,8 +4,7 @@
     <externalId>false</externalId>
     <fieldManageability>SubscriberControlled</fieldManageability>
     <label>Customer Name</label>
-    <metadataRelationshipControllingField
-    >Customer_Fields__mdt.Sobject_Type__c</metadataRelationshipControllingField>
+    <metadataRelationshipControllingField>Customer_Fields__mdt.Sobject_Type__c</metadataRelationshipControllingField>
     <referenceTo>FieldDefinition</referenceTo>
     <relationshipLabel>Customer_Fields_Name</relationshipLabel>
     <relationshipName>Customer_Fields_Name</relationshipName>

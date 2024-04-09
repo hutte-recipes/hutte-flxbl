@@ -17,9 +17,7 @@ const SOBJECT_TYPE = 'Lead';
 jest.mock(
     '@salesforce/apex/reservationManagerController.getCustomerList',
     () => {
-        const {
-            createApexTestWireAdapter
-        } = require('@salesforce/sfdx-lwc-jest');
+        const { createApexTestWireAdapter } = require('@salesforce/sfdx-lwc-jest');
         return {
             default: createApexTestWireAdapter(jest.fn())
         };
@@ -59,12 +57,9 @@ describe('c-customer-list', () => {
         getCustomerList.emit(mockCustomerList);
 
         return Promise.resolve().then(() => {
-            const customerTileElements =
-                element.shadowRoot.querySelectorAll('c-customer-tile');
+            const customerTileElements = element.shadowRoot.querySelectorAll('c-customer-tile');
             expect(customerTileElements.length).toBe(mockCustomerList.length);
-            expect(customerTileElements[0].customer).toStrictEqual(
-                mockCustomerList[0]
-            );
+            expect(customerTileElements[0].customer).toStrictEqual(mockCustomerList[0]);
             expect(customerTileElements[0].object).toBe(SOBJECT_TYPE);
         });
     });
@@ -83,13 +78,10 @@ describe('c-customer-list', () => {
         getCustomerList.error(WIRE_ERROR);
 
         return Promise.resolve().then(() => {
-            const errorPanelEl =
-                element.shadowRoot.querySelector('c-error-panel');
+            const errorPanelEl = element.shadowRoot.querySelector('c-error-panel');
             expect(errorPanelEl).not.toBeNull();
             expect(errorPanelEl.errors.body).toBe(WIRE_ERROR);
-            expect(errorPanelEl.friendlyMessage).toBe(
-                'There was an issue loading customers.'
-            );
+            expect(errorPanelEl.friendlyMessage).toBe('There was an issue loading customers.');
         });
     });
 
@@ -115,8 +107,7 @@ describe('c-customer-list', () => {
         getCustomerList.emit(mockCustomerList);
 
         return Promise.resolve().then(() => {
-            const customerTileElement =
-                element.shadowRoot.querySelector('c-customer-tile');
+            const customerTileElement = element.shadowRoot.querySelector('c-customer-tile');
             customerTileElement.dispatchEvent(
                 new CustomEvent('customerselect', {
                     detail: SELECT_EVENT_DETAIL
@@ -124,11 +115,7 @@ describe('c-customer-list', () => {
             );
 
             // Was publish called and was it called with the correct params?
-            expect(publish).toHaveBeenCalledWith(
-                undefined,
-                TILE_SELECTION_MC,
-                LMS_PAYLOAD
-            );
+            expect(publish).toHaveBeenCalledWith(undefined, TILE_SELECTION_MC, LMS_PAYLOAD);
         });
     });
 

@@ -1,16 +1,11 @@
 <template>
     <div class="slds-card">
         <template if:true={errorMsg}>
-            <c-error-panel
-                friendly-message={msgForUser}
-                errors={errorMsg}
-            ></c-error-panel>
+            <c-error-panel friendly-message={msgForUser} errors={errorMsg}></c-error-panel>
         </template>
 
         <template if:false={errorMsg}>
-            <p class="slds-text-heading_small slds-var-m-around_x-small">
-                Open Reservations:
-            </p>
+            <p class="slds-text-heading_small slds-var-m-around_x-small">Open Reservations:</p>
             <template if:true={noRecords}>
                 <p class="slds-var-m-left_small">No open reservations found.</p>
             </template>

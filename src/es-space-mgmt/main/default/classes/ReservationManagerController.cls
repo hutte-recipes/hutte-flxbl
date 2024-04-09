@@ -1,9 +1,7 @@
 public with sharing class ReservationManagerController {
     //Note: This is a sample, so we're using 'LIMIT' to simulate proper set/pagination controls
     @auraEnabled(cacheable=true)
-    public static List<CustomerServices.Customer> getCustomerList(
-        String sObjectType
-    ) {
+    public static List<CustomerServices.Customer> getCustomerList(String sObjectType) {
         List<CustomerServices.Customer> customers = new List<CustomerServices.Customer>();
         Customer_Fields__mdt c = [
             SELECT
@@ -17,7 +15,7 @@ public with sharing class ReservationManagerController {
             WHERE Sobject_Type__r.QualifiedAPIName = :sObjectType
             LIMIT 1
         ];
-// WITH SECURITY_ENFORCED
+        // WITH SECURITY_ENFORCED
 
         List<String> draftStatus = new List<String>();
         draftStatus = c.Customer_Draft_Status_Values__c?.split(',');
@@ -31,13 +29,10 @@ public with sharing class ReservationManagerController {
         query += 'Id';
         query += ' FROM ' + sObjectType;
         if (draftStatus.size() > 0) {
-            query +=
-                ' WHERE ' +
-                c.Customer_Status__r.QualifiedAPIName +
-                ' IN: draftStatus';
+            query += ' WHERE ' + c.Customer_Status__r.QualifiedAPIName + ' IN: draftStatus';
         }
         query += ' ORDER BY CreatedDate DESC LIMIT 5';
-// query += ' WITH SECURITY_ENFORCED ORDER BY CreatedDate DESC LIMIT 5';
+        // query += ' WITH SECURITY_ENFORCED ORDER BY CreatedDate DESC LIMIT 5';
 
         for (Sobject sobj : Database.query(query)) {
             CustomerServices.Customer customer = new CustomerServices.Customer(
@@ -73,6 +68,6 @@ public with sharing class ReservationManagerController {
             WHERE Status__c IN ('Not Started', 'Draft')
             LIMIT 10
         ];
-            // WITH SECURITY_ENFORCED
+        // WITH SECURITY_ENFORCED
     }
 }

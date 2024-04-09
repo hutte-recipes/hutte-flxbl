@@ -1,41 +1,22 @@
 <template>
     <div class="slds-card">
         <template if:true={errorMsg}>
-            <c-error-panel
-                friendly-message={msgForUser}
-                errors={errorMsg}
-            ></c-error-panel>
+            <c-error-panel friendly-message={msgForUser} errors={errorMsg}></c-error-panel>
         </template>
 
         <template if:false={errorMsg}>
             <lightning-layout>
                 <lightning-layout-item size="3">
-                    <div
-                        class="slds-box slds-var-m-top_xx-small slds-var-m-right_x-small"
-                    >
-                        <h1
-                            class="slds-text-heading_small slds-var-p-bottom_xx-small"
-                        >
-                            Filter by Space Type:
-                        </h1>
-                        <c-pill-list
-                            pills={pillvalues}
-                            onfilterschange={handleFilters}
-                        ></c-pill-list>
+                    <div class="slds-box slds-var-m-top_xx-small slds-var-m-right_x-small">
+                        <h1 class="slds-text-heading_small slds-var-p-bottom_xx-small">Filter by Space Type:</h1>
+                        <c-pill-list pills={pillvalues} onfilterschange={handleFilters}></c-pill-list>
                     </div>
-                    <div
-                        class="slds-box slds-var-m-top_xx-small slds-var-m-right_x-small"
-                    >
+                    <div class="slds-box slds-var-m-top_xx-small slds-var-m-right_x-small">
                         <template if:true={selectedtile}>
-                            <lightning-record-view-form
-                                record-id={selectedtile}
-                                object-api-name="Space__c"
-                            >
+                            <lightning-record-view-form record-id={selectedtile} object-api-name="Space__c">
                                 <div class="slds-grid slds-grid_vertical">
                                     <div class="slds-col">
-                                        <lightning-output-field
-                                            field-name="Name"
-                                        ></lightning-output-field>
+                                        <lightning-output-field field-name="Name"></lightning-output-field>
                                     </div>
                                     <div class="slds-col">
                                         <lightning-output-field
@@ -59,10 +40,7 @@
                     </div>
                 </lightning-layout-item>
                 <lightning-layout-item size="9">
-                    <c-image-gallery
-                        items={items}
-                        onitemselect={handleItemSelect}
-                    ></c-image-gallery>
+                    <c-image-gallery items={items} onitemselect={handleItemSelect}></c-image-gallery>
                     <template if:true={selectedtile}>
                         <div class="slds-var-p-vertical_small">
                             <div>

@@ -68,9 +68,7 @@ describe('c-pill-list', () => {
             .then(() => {
                 // Validate if event got fired
                 expect(handler).toHaveBeenCalled();
-                expect(handler.mock.calls[0][0].detail).toEqual(
-                    EVENT_DETAIL_PARAMETER
-                );
+                expect(handler.mock.calls[0][0].detail).toEqual(EVENT_DETAIL_PARAMETER);
             });
     });
 

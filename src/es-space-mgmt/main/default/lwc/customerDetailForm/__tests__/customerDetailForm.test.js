@@ -53,12 +53,7 @@ describe('c-customer-detail-form', () => {
 
         const RECORD_ID_INPUT = '0031700000pJRRSAA4';
         const OBJECT_API_NAME_INPUT = 'Contact';
-        const RECORD_FIELDS_OUTPUT = [
-            'MailingCity',
-            'Email',
-            'Name',
-            'MailingState'
-        ];
+        const RECORD_FIELDS_OUTPUT = ['MailingCity', 'Email', 'Name', 'MailingState'];
 
         // Create element
         const element = createElement('c-customer-detail-form', {
@@ -71,9 +66,7 @@ describe('c-customer-detail-form', () => {
         await flushPromises();
 
         // Validate if correct parameters have been passed to base components
-        const formEl = element.shadowRoot.querySelector(
-            'lightning-record-form'
-        );
+        const formEl = element.shadowRoot.querySelector('lightning-record-form');
 
         expect(formEl.fields).toEqual(RECORD_FIELDS_OUTPUT);
         expect(formEl.recordId).toBe(RECORD_ID_INPUT);
@@ -105,19 +98,13 @@ describe('c-customer-detail-form', () => {
         await flushPromises();
 
         // Validate if correct parameters have been passed to base components
-        const formEl = element.shadowRoot.querySelector(
-            'lightning-record-form'
-        );
-        formEl.dispatchEvent(
-            new CustomEvent('success', { detail: FORM_SUBMIT_RESPONSE })
-        );
+        const formEl = element.shadowRoot.querySelector('lightning-record-form');
+        formEl.dispatchEvent(new CustomEvent('success', { detail: FORM_SUBMIT_RESPONSE }));
 
         await flushPromises();
 
         expect(customerUpdateHandler).toHaveBeenCalled();
-        expect(customerUpdateHandler.mock.calls[0][0].detail).toEqual(
-            EVENT_DETAIL_PARAMETER
-        );
+        expect(customerUpdateHandler.mock.calls[0][0].detail).toEqual(EVENT_DETAIL_PARAMETER);
     });
 
     it('sends a draft reservation event via button click', async () => {
@@ -155,9 +142,7 @@ describe('c-customer-detail-form', () => {
 
         const errorPanelEl = element.shadowRoot.querySelector('c-error-panel');
         expect(errorPanelEl).not.toBeNull();
-        expect(errorPanelEl.errors).toStrictEqual(
-            APEX_GET_CUSTOMER_FIELDS_ERROR
-        );
+        expect(errorPanelEl.errors).toStrictEqual(APEX_GET_CUSTOMER_FIELDS_ERROR);
     });
 
     it('is accessible when customer detail fields returned', async () => {

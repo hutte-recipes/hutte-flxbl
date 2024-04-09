@@ -20,9 +20,7 @@ export const NavigationMixin = (Base) => {
         }
         [GenerateUrl](pageReference) {
             _generatePageReference = pageReference;
-            return new Promise((resolve) =>
-                resolve(SalesforceBaseUrl + pageReference.attributes.recordId)
-            );
+            return new Promise((resolve) => resolve(SalesforceBaseUrl + pageReference.attributes.recordId));
         }
     };
 };

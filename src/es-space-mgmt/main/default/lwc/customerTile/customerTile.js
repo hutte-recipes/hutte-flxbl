@@ -8,12 +8,7 @@ export default class CustomerTile extends NavigationMixin(LightningElement) {
         return 'standard:' + this.object.toLowerCase();
     }
     get alttext() {
-        return (
-            'Navigate to ' +
-            this.object +
-            ' record detail for ' +
-            this.customer.name
-        );
+        return 'Navigate to ' + this.object + ' record detail for ' + this.customer.name;
     }
 
     connectedCallback() {
@@ -24,9 +19,7 @@ export default class CustomerTile extends NavigationMixin(LightningElement) {
                 actionName: 'view'
             }
         };
-        this[NavigationMixin.GenerateUrl](this.customerRecordRef).then(
-            (url) => (this.navRef = url)
-        );
+        this[NavigationMixin.GenerateUrl](this.customerRecordRef).then((url) => (this.navRef = url));
     }
 
     handleClick() {

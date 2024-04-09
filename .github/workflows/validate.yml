@@ -8,13 +8,13 @@
 name: Pull Request Validation
 
 on:
-  pull_request:
-    types: [opened, synchronize, reopened]
-    branches:
-      - main
-      - release/**
+    pull_request:
+        types: [opened, synchronize, reopened]
+        branches:
+            - main
+            - release/**
 
-  workflow_dispatch:
+    workflow_dispatch:
 
 # Set the environment variables for tracking metrics
 #env:
@@ -28,29 +28,29 @@ on:
 # SFPOWERSCRIPTS_SPLUNK_API_KEY: '${{ secrets.SPLUNK_API_KEY }}'
 
 jobs:
-  validate:
-    name: "Validate Changed Packages"
-    runs-on: ubuntu-latest
-    container: ghcr.io/flxbl-io/sfp
+    validate:
+        name: 'Validate Changed Packages'
+        runs-on: ubuntu-latest
+        container: ghcr.io/flxbl-io/sfp
 
-    steps:
-      - uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
+        steps:
+            - uses: actions/checkout@v4
+              with:
+                  fetch-depth: 0
 
-      - name: Authenticate Dev Hub
-        run: |
-          echo "${{ secrets.DEVHUB_SFDX_AUTH_URL }}" > ./authfile
-          sf org login sfdx-url  -f authfile -a devhub
+            - name: Authenticate Dev Hub
+              run: |
+                  echo "${{ secrets.DEVHUB_SFDX_AUTH_URL }}" > ./authfile
+                  sf org login sfdx-url  -f authfile -a devhub
 
-      - name: Configure Git for Hutte CLI
-        run: |
-          git config --global --add safe.directory /__w/hutte-flxbl/hutte-flxbl
+            - name: Configure Git for Hutte CLI
+              run: |
+                  git config --global --add safe.directory /__w/hutte-flxbl/hutte-flxbl
 
-      # Note: Using Hutte pool org rather than Flxbl Pool
-      - name: Push source to Hutte scratch org from pool
-        run: |
-          echo y | sf plugins install hutte
-          sf hutte pool take --api-token "${{ secrets.HUTTE_API_TOKEN }}" --json --wait
-          poolOrgAlias=$(sf org display --json | jq -r '.result.alias')
-          sfp validate org --targetorg $poolOrgAlias --devhubalias ${{ vars.DEV_HUB_ALIAS }} --disablesourcepkgoverride --disableparalleltesting
+            # Note: Using Hutte pool org rather than Flxbl Pool
+            - name: Push source to Hutte scratch org from pool
+              run: |
+                  echo y | sf plugins install hutte
+                  sf hutte pool take --api-token "${{ secrets.HUTTE_API_TOKEN }}" --json --wait
+                  poolOrgAlias=$(sf org display --json | jq -r '.result.alias')
+                  sfp validate org --targetorg $poolOrgAlias --devhubalias ${{ vars.DEV_HUB_ALIAS }} --disablesourcepkgoverride --disableparalleltesting

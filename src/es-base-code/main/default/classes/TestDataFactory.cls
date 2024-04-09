@@ -19,15 +19,9 @@ public class TestDataFactory {
             c.LastName = 'Contact' + x;
             c.MailingCity = 'Test City' + x;
             c.MailingStreet = 'Test City Ave' + x;
-            c.MailingState = Math.mod(x, 2) == 0
-                ? null
-                : (Math.mod(x, 3) == 0 ? 'NY' : 'OR');
-            c.MailingPostalCode = Math.mod(x, 2) == 0
-                ? '1011 AJ'
-                : (Math.mod(x, 3) == 0 ? '10006' : '97230');
-            c.MailingCountry = Math.mod(x, 2) == 0
-                ? 'Amsterdam'
-                : 'United States';
+            c.MailingState = Math.mod(x, 2) == 0 ? null : (Math.mod(x, 3) == 0 ? 'NY' : 'OR');
+            c.MailingPostalCode = Math.mod(x, 2) == 0 ? '1011 AJ' : (Math.mod(x, 3) == 0 ? '10006' : '97230');
+            c.MailingCountry = Math.mod(x, 2) == 0 ? 'Amsterdam' : 'United States';
             c.Reservation_Status__c = 'Not Started';
             testPeeps.add(c);
         }
@@ -43,13 +37,9 @@ public class TestDataFactory {
             l.Company = 'Test Company' + x;
             l.City = 'Test City' + x;
             l.Street = 'Test Street' + x;
-            l.State = Math.mod(x, 2) == 0
-                ? null
-                : (Math.mod(x, 3) == 0 ? 'NY' : 'OR');
+            l.State = Math.mod(x, 2) == 0 ? null : (Math.mod(x, 3) == 0 ? 'NY' : 'OR');
             l.Country = Math.mod(x, 2) == 0 ? 'Amsterdam' : 'United States';
-            l.PostalCode = Math.mod(x, 2) == 0
-                ? '1011 AZ'
-                : (Math.mod(x, 3) == 0 ? '10006' : '97230');
+            l.PostalCode = Math.mod(x, 2) == 0 ? '1011 AZ' : (Math.mod(x, 3) == 0 ? '10006' : '97230');
             testPeeps.add(l);
         }
         return testPeeps;
@@ -61,9 +51,7 @@ public class TestDataFactory {
             Market__c m = new Market__c();
             m.Name = 'Test Market' + x;
             m.City__c = 'Test City' + x;
-            m.State__c = Math.mod(x, 2) == 0
-                ? null
-                : (Math.mod(x, 3) == 0 ? 'NY' : 'OR');
+            m.State__c = Math.mod(x, 2) == 0 ? null : (Math.mod(x, 3) == 0 ? 'NY' : 'OR');
             m.Country__c = Math.mod(x, 2) == 0 ? 'Amsterdam' : 'United States';
             markets.add(m);
         }

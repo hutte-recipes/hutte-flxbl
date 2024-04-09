@@ -21,8 +21,7 @@ export default class CustomerDetailForm extends LightningElement {
                 })
                 .catch((error) => {
                     this.errorMsg = error;
-                    this.msgForUser =
-                        'There was an issue loading customer data.';
+                    this.msgForUser = 'There was an issue loading customer data.';
                 });
         }
     }

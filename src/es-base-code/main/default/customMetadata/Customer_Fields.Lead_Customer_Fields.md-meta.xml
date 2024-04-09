@@ -12,9 +12,7 @@
     </values>
     <values>
         <field>Customer_Draft_Status_Values__c</field>
-        <value
-            xsi:type="xsd:string"
-        >Open - Not Contacted,New - Not Contacted,New</value>
+        <value xsi:type="xsd:string">Open - Not Contacted,New - Not Contacted,New</value>
     </values>
     <values>
         <field>Customer_Email__c</field>

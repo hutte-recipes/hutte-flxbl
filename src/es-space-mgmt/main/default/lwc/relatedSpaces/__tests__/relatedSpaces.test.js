@@ -8,9 +8,7 @@ import RelatedSpaces from 'c/relatedSpaces';
 jest.mock(
     '@salesforce/apex/marketServices.getRelatedSpaces',
     () => {
-        const {
-            createApexTestWireAdapter
-        } = require('@salesforce/sfdx-lwc-jest');
+        const { createApexTestWireAdapter } = require('@salesforce/sfdx-lwc-jest');
         return {
             default: createApexTestWireAdapter(jest.fn())
         };
@@ -50,12 +48,9 @@ describe('c-related-spaces', () => {
         // ending the test and fail the test if the promise rejects.
         return Promise.resolve().then(() => {
             // Select elements for validation
-            const detailEls =
-                element.shadowRoot.querySelector('c-image-gallery');
+            const detailEls = element.shadowRoot.querySelector('c-image-gallery');
             expect(detailEls.items.length).toBe(mockRelatedSpaceRecords.length);
-            expect(detailEls.items[0].record.Name).toBe(
-                mockRelatedSpaceRecords[0].Name
-            );
+            expect(detailEls.items[0].record.Name).toBe(mockRelatedSpaceRecords[0].Name);
         });
     });
 
@@ -93,12 +88,9 @@ describe('c-related-spaces', () => {
         // will automatically wait for the Promise chain to complete before
         // ending the test and fail the test if the promise rejects.
         return Promise.resolve().then(() => {
-            const errorPanelEl =
-                element.shadowRoot.querySelector('c-error-panel');
+            const errorPanelEl = element.shadowRoot.querySelector('c-error-panel');
             expect(errorPanelEl).not.toBeNull();
-            expect(errorPanelEl.friendlyMessage).toBe(
-                'There was an issue loading related market data.'
-            );
+            expect(errorPanelEl.friendlyMessage).toBe('There was an issue loading related market data.');
         });
     });
 
@@ -121,8 +113,7 @@ describe('c-related-spaces', () => {
         // ending the test and fail the test if the promise rejects.
         return Promise.resolve()
             .then(() => {
-                const detailEls =
-                    element.shadowRoot.querySelector('c-image-gallery');
+                const detailEls = element.shadowRoot.querySelector('c-image-gallery');
                 detailEls.dispatchEvent(
                     new CustomEvent('itemselect', {
                         detail: { recordId: NAV_RECORD_ID }
@@ -133,12 +124,8 @@ describe('c-related-spaces', () => {
                 const { pageReference } = getNavigateCalledWith();
                 expect(pageReference.type).toBe(NAV_TYPE);
                 expect(pageReference.attributes.recordId).toBe(NAV_RECORD_ID);
-                expect(pageReference.attributes.actionName).toBe(
-                    NAV_ACTION_NAME
-                );
-                expect(pageReference.attributes.objectApiName).toBe(
-                    OBJECT_API_NAME
-                );
+                expect(pageReference.attributes.actionName).toBe(NAV_ACTION_NAME);
+                expect(pageReference.attributes.objectApiName).toBe(OBJECT_API_NAME);
             });
     });
 

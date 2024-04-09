@@ -4,12 +4,7 @@ import getCustomerList from '@salesforce/apex/reservationManagerController.getCu
 
 import TILE_SELECTION_MC from '@salesforce/messageChannel/Tile_Selection__c';
 import FLOW_STATUS_CHANGE_MC from '@salesforce/messageChannel/Flow_Status_Change__c';
-import {
-    subscribe,
-    APPLICATION_SCOPE,
-    MessageContext,
-    publish
-} from 'lightning/messageService';
+import { subscribe, APPLICATION_SCOPE, MessageContext, publish } from 'lightning/messageService';
 
 export default class CustomerList extends LightningElement {
     @api sobject;
@@ -22,20 +17,13 @@ export default class CustomerList extends LightningElement {
     messageContext;
 
     subscribeToMessageChannel() {
-        subscribe(
-            this.messageContext,
-            FLOW_STATUS_CHANGE_MC,
-            (message) => this.handleMessage(message),
-            { scope: APPLICATION_SCOPE }
-        );
+        subscribe(this.messageContext, FLOW_STATUS_CHANGE_MC, (message) => this.handleMessage(message), {
+            scope: APPLICATION_SCOPE
+        });
     }
 
     handleMessage(message) {
-        if (
-            message.flowName === 'createReservation' &&
-            message.status === 'FINISHED' &&
-            message.state
-        ) {
+        if (message.flowName === 'createReservation' && message.status === 'FINISHED' && message.state) {
             if (message.state.sobjecttype === this.sobject) {
                 refreshApex(this.wiredRecords);
             }
