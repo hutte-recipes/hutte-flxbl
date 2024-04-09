@@ -9,11 +9,11 @@
 name: Build & Publish & Deploy
 
 on:
-  push:
-    branches:
-      - main
+    push:
+        branches:
+            - main
 
-  workflow_dispatch:
+    workflow_dispatch:
 
 # Set the environment variables for tracking metrics
 #env:
@@ -27,106 +27,106 @@ on:
 # SFPOWERSCRIPTS_SPLUNK_API_KEY: '${{ secrets.SPLUNK_API_KEY }}'
 
 jobs:
-  buildAndPublish:
-    name: Build and Publish
-    runs-on: ubuntu-latest
-    container: ghcr.io/flxbl-io/sfp
-    if: github.ref == 'refs/heads/main'
-    steps:
-      - uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
+    buildAndPublish:
+        name: Build and Publish
+        runs-on: ubuntu-latest
+        container: ghcr.io/flxbl-io/sfp
+        if: github.ref == 'refs/heads/main'
+        steps:
+            - uses: actions/checkout@v4
+              with:
+                  fetch-depth: 0
 
-      - name: Authenticate Dev Hub
-        run: |
-          echo "${{ secrets.DEVHUB_SFDX_AUTH_URL }}" > ./authfile
-          sf org login sfdx-url  -f authfile -a devhub
+            - name: Authenticate Dev Hub
+              run: |
+                  echo "${{ secrets.DEVHUB_SFDX_AUTH_URL }}" > ./authfile
+                  sf org login sfdx-url  -f authfile -a devhub
 
-      - name: Build packages
-        id: sfpowerscripts-build
-        run: |
-          # TODO: quickbuild used instead of build, to be fixed in dxatscale, at the moment source packages cannot have dependencies to other source packages
-          sfp quickbuild --devhubalias devhub --diffcheck --buildnumber ${GITHUB_RUN_ID} --branch ${GITHUB_REF#refs/heads/} --waittime 180
+            - name: Build packages
+              id: sfpowerscripts-build
+              run: |
+                  # TODO: quickbuild used instead of build, to be fixed in dxatscale, at the moment source packages cannot have dependencies to other source packages
+                  sfp quickbuild --devhubalias devhub --diffcheck --buildnumber ${GITHUB_RUN_ID} --branch ${GITHUB_REF#refs/heads/} --waittime 180
 
-      # Publish artifacts
-      - uses: actions/upload-artifact@v2
-        with:
-          name: build-artifacts
-          path: artifacts
+            # Publish artifacts
+            - uses: actions/upload-artifact@v2
+              with:
+                  name: build-artifacts
+                  path: artifacts
 
-      # Authenticate to npm
-      - uses: actions/setup-node@v3
-        with:
-          registry-url: "https://npm.pkg.github.com"
+            # Authenticate to npm
+            - uses: actions/setup-node@v3
+              with:
+                  registry-url: 'https://npm.pkg.github.com'
 
-      - name: Publish
-        run: |
-          sfp publish --artifactdir artifacts --npm --scope @${{ github.repository_owner }}  --gittag --pushgittag
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+            - name: Publish
+              run: |
+                  sfp publish --artifactdir artifacts --npm --scope @${{ github.repository_owner }}  --gittag --pushgittag
+              env:
+                  NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-  deploySit:
-    name: Deploy to SIT
-    runs-on: ubuntu-latest
-    container: ghcr.io/flxbl-io/sfp
-    needs: buildAndPublish
-    if: github.ref == 'refs/heads/main'
-    environment:
-      name: SIT
-    concurrency: sit
-    steps:
-      - uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
+    deploySit:
+        name: Deploy to SIT
+        runs-on: ubuntu-latest
+        container: ghcr.io/flxbl-io/sfp
+        needs: buildAndPublish
+        if: github.ref == 'refs/heads/main'
+        environment:
+            name: SIT
+        concurrency: sit
+        steps:
+            - uses: actions/checkout@v4
+              with:
+                  fetch-depth: 0
 
-      - uses: actions/download-artifact@v2
-        with:
-          name: build-artifacts
-          path: artifacts
+            - uses: actions/download-artifact@v2
+              with:
+                  name: build-artifacts
+                  path: artifacts
 
-      - name: "Authenticate Dev Hub"
-        run: |
-          echo "${{ secrets.DEVHUB_SFDX_AUTH_URL }}" > ./authfile
-          sf org login sfdx-url  -f authfile -a devhub
+            - name: 'Authenticate Dev Hub'
+              run: |
+                  echo "${{ secrets.DEVHUB_SFDX_AUTH_URL }}" > ./authfile
+                  sf org login sfdx-url  -f authfile -a devhub
 
-      - name: Authenticate to SIT sandbox
-        run: |
-          echo "${{ secrets.SIT_SFDX_AUTH_URL }}" > ./dev_authfile
-          sf org login sfdx-url  -f ./dev_authfile -a sit
+            - name: Authenticate to SIT sandbox
+              run: |
+                  echo "${{ secrets.SIT_SFDX_AUTH_URL }}" > ./dev_authfile
+                  sf org login sfdx-url  -f ./dev_authfile -a sit
 
-      - name: "Deploy to SIT"
-        run: |
-          sfp install --targetorg sit  --skipifalreadyinstalled -g "::group::,::endgroup::" --waittime 180
+            - name: 'Deploy to SIT'
+              run: |
+                  sfp install --targetorg sit  --skipifalreadyinstalled -g "::group::,::endgroup::" --waittime 180
 
-  deployUat:
-    name: Deploy to UAT
-    runs-on: ubuntu-latest
-    container: ghcr.io/flxbl-io/sfp
-    needs: buildAndPublish
-    if: github.ref == 'refs/heads/main'
-    environment:
-      name: UAT
-    concurrency: uat
-    steps:
-      - uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
+    deployUat:
+        name: Deploy to UAT
+        runs-on: ubuntu-latest
+        container: ghcr.io/flxbl-io/sfp
+        needs: buildAndPublish
+        if: github.ref == 'refs/heads/main'
+        environment:
+            name: UAT
+        concurrency: uat
+        steps:
+            - uses: actions/checkout@v4
+              with:
+                  fetch-depth: 0
 
-      - uses: actions/download-artifact@v2
-        with:
-          name: build-artifacts
-          path: artifacts
+            - uses: actions/download-artifact@v2
+              with:
+                  name: build-artifacts
+                  path: artifacts
 
-      - name: "Authenticate Dev Hub"
-        run: |
-          echo "${{ secrets.DEVHUB_SFDX_AUTH_URL }}" > ./authfile
-          sf org login sfdx-url  -f authfile -a devhub
+            - name: 'Authenticate Dev Hub'
+              run: |
+                  echo "${{ secrets.DEVHUB_SFDX_AUTH_URL }}" > ./authfile
+                  sf org login sfdx-url  -f authfile -a devhub
 
-      - name: Authenticate to UAT sandbox
-        run: |
-          echo "${{ secrets.UAT_SFDX_AUTH_URL }}" > ./dev_authfile
-          sf org login sfdx-url  -f ./dev_authfile -a uat
+            - name: Authenticate to UAT sandbox
+              run: |
+                  echo "${{ secrets.UAT_SFDX_AUTH_URL }}" > ./dev_authfile
+                  sf org login sfdx-url  -f ./dev_authfile -a uat
 
-      - name: "Deploy to UAT"
-        run: |
-          sfp install --targetorg uat  --skipifalreadyinstalled -g "::group::,::endgroup::" --waittime 180
+            - name: 'Deploy to UAT'
+              run: |
+                  sfp install --targetorg uat  --skipifalreadyinstalled -g "::group::,::endgroup::" --waittime 180

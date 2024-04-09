@@ -28,9 +28,7 @@ describe('c-reservation-helper-form', () => {
         // will automatically wait for the Promise chain to complete before
         // ending the test and fail the test if the promise rejects.
         return Promise.resolve().then(() => {
-            const customerDetailForm = element.shadowRoot.querySelector(
-                'c-customer-detail-form'
-            );
+            const customerDetailForm = element.shadowRoot.querySelector('c-customer-detail-form');
             expect(customerDetailForm.recordid).toBe(CUSTOMERID);
             expect(customerDetailForm.sobjecttype).toBe(OBJECTTYPE);
         });
@@ -53,9 +51,7 @@ describe('c-reservation-helper-form', () => {
         // will automatically wait for the Promise chain to complete before
         // ending the test and fail the test if the promise rejects.
         return Promise.resolve().then(() => {
-            const customerDetailForm = element.shadowRoot.querySelector(
-                'c-customer-detail-form'
-            );
+            const customerDetailForm = element.shadowRoot.querySelector('c-customer-detail-form');
             customerDetailForm.dispatchEvent(
                 new CustomEvent('customerupdate', {
                     detail: STATE_NEW
@@ -85,12 +81,8 @@ describe('c-reservation-helper-form', () => {
         // will automatically wait for the Promise chain to complete before
         // ending the test and fail the test if the promise rejects.
         return Promise.resolve().then(() => {
-            const customerDetailForm = element.shadowRoot.querySelector(
-                'c-customer-detail-form'
-            );
-            customerDetailForm.dispatchEvent(
-                new CustomEvent('draftreservation')
-            );
+            const customerDetailForm = element.shadowRoot.querySelector('c-customer-detail-form');
+            customerDetailForm.dispatchEvent(new CustomEvent('draftreservation'));
             expect(handler).toHaveBeenCalled();
         });
     });

@@ -97,10 +97,8 @@
                     <name>variant</name>
                     <value>linear</value>
                 </componentInstanceProperties>
-                <componentName
-                >runtime_sales_pathassistant:pathAssistant</componentName>
-                <identifier
-                >runtime_sales_pathassistant_pathAssistant1</identifier>
+                <componentName>runtime_sales_pathassistant:pathAssistant</componentName>
+                <identifier>runtime_sales_pathassistant_pathAssistant1</identifier>
             </componentInstance>
         </itemInstances>
         <itemInstances>
@@ -120,8 +118,7 @@
     <flexiPageRegions>
         <itemInstances>
             <componentInstance>
-                <componentName
-                >runtime_sales_activities:activityPanel</componentName>
+                <componentName>runtime_sales_activities:activityPanel</componentName>
                 <identifier>runtime_sales_activities_activityPanel1</identifier>
             </componentInstance>
         </itemInstances>

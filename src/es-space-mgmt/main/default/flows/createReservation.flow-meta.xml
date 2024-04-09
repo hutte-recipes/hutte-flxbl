@@ -196,8 +196,7 @@
         <locationY>518</locationY>
         <assignRecordIdToReference>varReservationId</assignRecordIdToReference>
         <connector>
-            <targetReference
-            >updateLeadContactReservationStatus</targetReference>
+            <targetReference>updateLeadContactReservationStatus</targetReference>
         </connector>
         <inputAssignments>
             <field>Contact__c</field>
@@ -244,8 +243,7 @@
         <locationY>518</locationY>
         <assignRecordIdToReference>varReservationId</assignRecordIdToReference>
         <connector>
-            <targetReference
-            >updateLeadContactReservationStatus</targetReference>
+            <targetReference>updateLeadContactReservationStatus</targetReference>
         </connector>
         <inputAssignments>
             <field>End_Date__c</field>
@@ -409,8 +407,7 @@
             <choiceReferences>Day60</choiceReferences>
             <choiceReferences>GreaterThan60</choiceReferences>
             <dataType>Number</dataType>
-            <defaultSelectedChoiceReference
-            >Day7</defaultSelectedChoiceReference>
+            <defaultSelectedChoiceReference>Day7</defaultSelectedChoiceReference>
             <fieldText>How long do they want the space?</fieldText>
             <fieldType>RadioButtons</fieldType>
             <isRequired>false</isRequired>

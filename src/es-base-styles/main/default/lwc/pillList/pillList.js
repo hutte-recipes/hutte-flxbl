@@ -32,9 +32,7 @@ export default class PillList extends LightningElement {
     }
 
     fireFiltersChangeEvent() {
-        const pillLabels = this._pills
-            .filter((pill) => pill.selected)
-            .map((pill) => pill.label);
+        const pillLabels = this._pills.filter((pill) => pill.selected).map((pill) => pill.label);
         this.dispatchEvent(
             new CustomEvent('filterschange', {
                 detail: {

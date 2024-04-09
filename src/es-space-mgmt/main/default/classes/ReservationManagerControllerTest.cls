@@ -47,13 +47,9 @@ public class ReservationManagerControllerTest {
 
     @isTest
     static void canFetchCustomers() {
-        List<CustomerServices.Customer> contacts = ReservationManagerController.getCustomerList(
-            'Contact'
-        );
+        List<CustomerServices.Customer> contacts = ReservationManagerController.getCustomerList('Contact');
         system.assertNotEquals(contacts, null);
-        List<CustomerServices.Customer> leads = ReservationManagerController.getCustomerList(
-            'Lead'
-        );
+        List<CustomerServices.Customer> leads = ReservationManagerController.getCustomerList('Lead');
         system.assertNotEquals(leads, null);
         system.assertNotEquals(contacts, leads);
     }

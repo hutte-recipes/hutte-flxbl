@@ -1,10 +1,7 @@
 <template>
     <div class="slds-card">
         <template if:true={errorMsg}>
-            <c-error-panel
-                friendly-message={msgForUser}
-                errors={errorMsg}
-            ></c-error-panel>
+            <c-error-panel friendly-message={msgForUser} errors={errorMsg}></c-error-panel>
         </template>
         <ul class="slds-list_vertical slds-has-dividers_bottom-space">
             <template for:each={customers} for:item="record">

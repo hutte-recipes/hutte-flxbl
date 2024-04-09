@@ -27,29 +27,17 @@ describe('c-reservation-tile', () => {
 
             // check for paragraph text nodes
             const paragraphElements = element.shadowRoot.querySelectorAll('p');
-            expect(paragraphElements[0].textContent).toBe(
-                `Customer: ${RESERVATION_LEAD.record.Lead__r.Name}`
-            );
+            expect(paragraphElements[0].textContent).toBe(`Customer: ${RESERVATION_LEAD.record.Lead__r.Name}`);
             // check for status text nodes
-            expect(paragraphElements[1].textContent).toBe(
-                `Status: ${RESERVATION_LEAD.record.Status__c}`
-            );
-            expect(paragraphElements[2].textContent).toBe(
-                `Market: ${RESERVATION_LEAD.record.Market__r.Name}`
-            );
+            expect(paragraphElements[1].textContent).toBe(`Status: ${RESERVATION_LEAD.record.Status__c}`);
+            expect(paragraphElements[2].textContent).toBe(`Market: ${RESERVATION_LEAD.record.Market__r.Name}`);
             expect(paragraphElements[5].textContent).toBe(
                 `Total Guests: ${RESERVATION_LEAD.record.Total_Number_of_Guests__c}`
             );
             // check value of formatted date elements
-            const datetimeElements = element.shadowRoot.querySelectorAll(
-                'lightning-formatted-date-time'
-            );
-            expect(datetimeElements[0].value).toBe(
-                RESERVATION_LEAD.record.Start_Date__c
-            );
-            expect(datetimeElements[1].value).toBe(
-                RESERVATION_LEAD.record.End_Date__c
-            );
+            const datetimeElements = element.shadowRoot.querySelectorAll('lightning-formatted-date-time');
+            expect(datetimeElements[0].value).toBe(RESERVATION_LEAD.record.Start_Date__c);
+            expect(datetimeElements[1].value).toBe(RESERVATION_LEAD.record.End_Date__c);
         });
     });
 
@@ -68,28 +56,16 @@ describe('c-reservation-tile', () => {
 
             // check for paragraph text nodes
             const paragraphElements = element.shadowRoot.querySelectorAll('p');
-            expect(paragraphElements[0].textContent).toBe(
-                `Customer: ${RESERVATION_CONTACT.record.Contact__r.Name}`
-            );
-            expect(paragraphElements[1].textContent).toBe(
-                `Status: ${RESERVATION_CONTACT.record.Status__c}`
-            );
-            expect(paragraphElements[2].textContent).toBe(
-                `Market: ${RESERVATION_CONTACT.record.Market__r.Name}`
-            );
+            expect(paragraphElements[0].textContent).toBe(`Customer: ${RESERVATION_CONTACT.record.Contact__r.Name}`);
+            expect(paragraphElements[1].textContent).toBe(`Status: ${RESERVATION_CONTACT.record.Status__c}`);
+            expect(paragraphElements[2].textContent).toBe(`Market: ${RESERVATION_CONTACT.record.Market__r.Name}`);
             expect(paragraphElements[5].textContent).toBe(
                 `Total Guests: ${RESERVATION_CONTACT.record.Total_Number_of_Guests__c}`
             );
             // check value of formatted date elements
-            const datetimeElements = element.shadowRoot.querySelectorAll(
-                'lightning-formatted-date-time'
-            );
-            expect(datetimeElements[0].value).toBe(
-                RESERVATION_CONTACT.record.Start_Date__c
-            );
-            expect(datetimeElements[1].value).toBe(
-                RESERVATION_CONTACT.record.End_Date__c
-            );
+            const datetimeElements = element.shadowRoot.querySelectorAll('lightning-formatted-date-time');
+            expect(datetimeElements[0].value).toBe(RESERVATION_CONTACT.record.Start_Date__c);
+            expect(datetimeElements[1].value).toBe(RESERVATION_CONTACT.record.End_Date__c);
         });
     });
 
@@ -108,15 +84,9 @@ describe('c-reservation-tile', () => {
 
         return Promise.resolve().then(() => {
             expect(handler).toHaveBeenCalled();
-            expect(handler.mock.calls[0][0].detail.reservationId).toBe(
-                RESERVATION_CONTACT.record.Id
-            );
-            expect(handler.mock.calls[0][0].detail.marketId).toBe(
-                RESERVATION_CONTACT.record.Market__c
-            );
-            expect(handler.mock.calls[0][0].detail.customerName).toBe(
-                RESERVATION_CONTACT.record.Contact__r.Name
-            );
+            expect(handler.mock.calls[0][0].detail.reservationId).toBe(RESERVATION_CONTACT.record.Id);
+            expect(handler.mock.calls[0][0].detail.marketId).toBe(RESERVATION_CONTACT.record.Market__c);
+            expect(handler.mock.calls[0][0].detail.customerName).toBe(RESERVATION_CONTACT.record.Contact__r.Name);
         });
     });
 
@@ -135,15 +105,9 @@ describe('c-reservation-tile', () => {
 
         return Promise.resolve().then(() => {
             expect(handler).toHaveBeenCalled();
-            expect(handler.mock.calls[0][0].detail.reservationId).toBe(
-                RESERVATION_LEAD.record.Id
-            );
-            expect(handler.mock.calls[0][0].detail.marketId).toBe(
-                RESERVATION_LEAD.record.Market__c
-            );
-            expect(handler.mock.calls[0][0].detail.customerName).toBe(
-                RESERVATION_LEAD.record.Lead__r.Name
-            );
+            expect(handler.mock.calls[0][0].detail.reservationId).toBe(RESERVATION_LEAD.record.Id);
+            expect(handler.mock.calls[0][0].detail.marketId).toBe(RESERVATION_LEAD.record.Market__c);
+            expect(handler.mock.calls[0][0].detail.customerName).toBe(RESERVATION_LEAD.record.Lead__r.Name);
         });
     });
 

@@ -44,8 +44,7 @@
         <versionNumber>1</versionNumber>
     </promptVersions>
     <promptVersions>
-        <body
-        >From the Open Reservations list 👆, click one of the Open Reservation items.</body>
+        <body>From the Open Reservations list 👆, click one of the Open Reservation items.</body>
         <customApplication>Space_Management</customApplication>
         <dismissButtonLabel>Close</dismissButtonLabel>
         <displayPosition>BottomLeft</displayPosition>
@@ -102,8 +101,7 @@
     </promptVersions>
     <promptVersions>
         <actionButtonLabel>Code Tours</actionButtonLabel>
-        <actionButtonLink
-        >https://github.com/trailheadapps/easy-spaces-lwc#code-tours</actionButtonLink>
+        <actionButtonLink>https://github.com/trailheadapps/easy-spaces-lwc#code-tours</actionButtonLink>
         <body
         >You&amp;#39;ve now completed the Easy Spaces sample app tour 🎉. We hope you enjoyed the trip and that you are curious to explore app design and code. Take a look at VS Code code tours to learn more about the app code.</body>
         <customApplication>Space_Management</customApplication>

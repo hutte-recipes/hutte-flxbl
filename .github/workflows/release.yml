@@ -9,11 +9,11 @@
 name: Release - User Triggered
 
 on:
-  workflow_dispatch:
-    inputs:
-      pathToReleaseDef:
-        description: "Path to release definition file"
-        required: true
+    workflow_dispatch:
+        inputs:
+            pathToReleaseDef:
+                description: 'Path to release definition file'
+                required: true
 
 # Set the environment variables for tracking metrics
 #env:
@@ -27,84 +27,84 @@ on:
 # SFPOWERSCRIPTS_SPLUNK_API_KEY: '${{ secrets.SPLUNK_API_KEY }}'
 
 jobs:
-  SIT:
-    runs-on: ubuntu-latest
-    container: ghcr.io/flxbl-io/sfp
-    if: github.ref == 'refs/heads/main' || contains(github.ref,'refs/heads/release')
-    environment:
-      name: SIT
+    SIT:
+        runs-on: ubuntu-latest
+        container: ghcr.io/flxbl-io/sfp
+        if: github.ref == 'refs/heads/main' || contains(github.ref,'refs/heads/release')
+        environment:
+            name: SIT
 
-    steps:
-      - uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
+        steps:
+            - uses: actions/checkout@v4
+              with:
+                  fetch-depth: 0
 
-      - name: Authenticate to SIT sandbox
-        run: |
-          echo "${{ secrets.SIT_SFDX_AUTH_URL }}" > ./authfile
-          sf org login sfdx-url  -f ./authfile -a sit
+            - name: Authenticate to SIT sandbox
+              run: |
+                  echo "${{ secrets.SIT_SFDX_AUTH_URL }}" > ./authfile
+                  sf org login sfdx-url  -f ./authfile -a sit
 
-      # Authenticate to npm
-      - uses: actions/setup-node@v3
-        with:
-          registry-url: "https://npm.pkg.github.com"
+            # Authenticate to npm
+            - uses: actions/setup-node@v3
+              with:
+                  registry-url: 'https://npm.pkg.github.com'
 
-      - name: Release to SIT
-        run: 'sfp release --targetorg sit --releasedefinition ${{ github.event.inputs.pathToReleaseDef }} --npm --scope ${{ github.repository_owner }} --generatechangelog --branchname changelog -g "::group::,::endgroup::" '
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+            - name: Release to SIT
+              run: 'sfp release --targetorg sit --releasedefinition ${{ github.event.inputs.pathToReleaseDef }} --npm --scope ${{ github.repository_owner }} --generatechangelog --branchname changelog -g "::group::,::endgroup::" '
+              env:
+                  NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-  UAT:
-    runs-on: ubuntu-latest
-    container: ghcr.io/flxbl-io/sfp
-    if: contains(github.ref,'refs/heads/release')
-    environment:
-      name: UAT
+    UAT:
+        runs-on: ubuntu-latest
+        container: ghcr.io/flxbl-io/sfp
+        if: contains(github.ref,'refs/heads/release')
+        environment:
+            name: UAT
 
-    steps:
-      - uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
+        steps:
+            - uses: actions/checkout@v4
+              with:
+                  fetch-depth: 0
 
-      - name: Authenticate to UAT
-        run: |
-          echo "${{ secrets.UAT_SFDX_AUTH_URL }}" > ./authfile
-          sf org login sfdx-url  -f ./authfile -a uat
+            - name: Authenticate to UAT
+              run: |
+                  echo "${{ secrets.UAT_SFDX_AUTH_URL }}" > ./authfile
+                  sf org login sfdx-url  -f ./authfile -a uat
 
-      # Authenticate to npm
-      - uses: actions/setup-node@v3
-        with:
-          registry-url: "https://npm.pkg.github.com"
+            # Authenticate to npm
+            - uses: actions/setup-node@v3
+              with:
+                  registry-url: 'https://npm.pkg.github.com'
 
-      - name: Release to UAT
-        run: 'sfp release --targetorg uat --releasedefinition ${{ github.event.inputs.pathToReleaseDef }} --npm --scope ${{ github.repository_owner }} --generatechangelog --branchname changelog -g "::group::,::endgroup::"'
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+            - name: Release to UAT
+              run: 'sfp release --targetorg uat --releasedefinition ${{ github.event.inputs.pathToReleaseDef }} --npm --scope ${{ github.repository_owner }} --generatechangelog --branchname changelog -g "::group::,::endgroup::"'
+              env:
+                  NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-  PROD:
-    runs-on: ubuntu-latest
-    container: ghcr.io/flxbl-io/sfp
-    if: contains(github.ref,'refs/heads/release')
-    environment:
-      name: PROD
-    needs: UAT
+    PROD:
+        runs-on: ubuntu-latest
+        container: ghcr.io/flxbl-io/sfp
+        if: contains(github.ref,'refs/heads/release')
+        environment:
+            name: PROD
+        needs: UAT
 
-    steps:
-      - uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
+        steps:
+            - uses: actions/checkout@v4
+              with:
+                  fetch-depth: 0
 
-      - name: Authenticate to PROD
-        run: |
-          echo "${{ secrets.DEVHUB_SFDX_AUTH_URL }}" > ./authfile
-          sf org login sfdx-url  -f ./authfile -a prod
+            - name: Authenticate to PROD
+              run: |
+                  echo "${{ secrets.DEVHUB_SFDX_AUTH_URL }}" > ./authfile
+                  sf org login sfdx-url  -f ./authfile -a prod
 
-      # Authenticate to npm
-      - uses: actions/setup-node@v3
-        with:
-          registry-url: "https://npm.pkg.github.com"
+            # Authenticate to npm
+            - uses: actions/setup-node@v3
+              with:
+                  registry-url: 'https://npm.pkg.github.com'
 
-      - name: Release to PROD
-        run: 'sfp release --targetorg prod --releasedefinition ${{ github.event.inputs.pathToReleaseDef }} --npm --scope ${{ github.repository_owner }} --generatechangelog --branchname changelog -g "::group::,::endgroup::"'
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+            - name: Release to PROD
+              run: 'sfp release --targetorg prod --releasedefinition ${{ github.event.inputs.pathToReleaseDef }} --npm --scope ${{ github.repository_owner }} --generatechangelog --branchname changelog -g "::group::,::endgroup::"'
+              env:
+                  NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}

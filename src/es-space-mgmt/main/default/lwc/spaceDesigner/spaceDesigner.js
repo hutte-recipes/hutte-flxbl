@@ -3,12 +3,7 @@ import { ShowToastEvent } from 'lightning/platformShowToastEvent';
 
 import TILE_SELECTION_MC from '@salesforce/messageChannel/Tile_Selection__c';
 import FLOW_STATUS_CHANGE_MC from '@salesforce/messageChannel/Flow_Status_Change__c';
-import {
-    subscribe,
-    unsubscribe,
-    MessageContext,
-    publish
-} from 'lightning/messageService';
+import { subscribe, unsubscribe, MessageContext, publish } from 'lightning/messageService';
 
 export default class SpaceDesigner extends LightningElement {
     /*
@@ -23,10 +18,8 @@ export default class SpaceDesigner extends LightningElement {
     messageContext;
 
     subscribeToMessageChannel() {
-        this.subscription = subscribe(
-            this.messageContext,
-            TILE_SELECTION_MC,
-            (message) => this.handleReservationSelect(message)
+        this.subscription = subscribe(this.messageContext, TILE_SELECTION_MC, (message) =>
+            this.handleReservationSelect(message)
         );
     }
 
@@ -48,8 +41,7 @@ export default class SpaceDesigner extends LightningElement {
             if (this.flowStarted) {
                 const toastEvt = new ShowToastEvent({
                     title: 'Flow interview already in progress',
-                    message:
-                        'Finish the flow interview in progress before selecting another reservation.',
+                    message: 'Finish the flow interview in progress before selecting another reservation.',
                     variant: 'error'
                 });
                 this.dispatchEvent(toastEvt);

@@ -4,11 +4,7 @@
     access="global"
 >
     <aura:attribute name="leftColumn" type="Aura.Component[]" access="global" />
-    <aura:attribute
-        name="rightColumn"
-        type="Aura.Component[]"
-        access="global"
-    />
+    <aura:attribute name="rightColumn" type="Aura.Component[]" access="global" />
     <aura:attribute name="collapsedView" type="Boolean" default="false" />
 
     <div aura:id="container">
@@ -25,17 +21,11 @@
         />
 
         <lightning:layout>
-            <lightning:layoutItem
-                aura:id="leftColumn"
-                size="3"
-                class="left expanded"
-            >
+            <lightning:layoutItem aura:id="leftColumn" size="3" class="left expanded">
                 {!v.leftColumn}
             </lightning:layoutItem>
 
-            <lightning:layoutItem aura:id="rightColumn" size="9" class="right">
-                {!v.rightColumn}
-            </lightning:layoutItem>
+            <lightning:layoutItem aura:id="rightColumn" size="9" class="right"> {!v.rightColumn} </lightning:layoutItem>
         </lightning:layout>
     </div>
 </aura:component>

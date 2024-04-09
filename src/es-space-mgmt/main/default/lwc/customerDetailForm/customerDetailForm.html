@@ -1,19 +1,11 @@
 <template>
     <template if:true={errorMsg}>
-        <c-error-panel
-            friendly-message={msgForUser}
-            errors={errorMsg}
-        ></c-error-panel>
+        <c-error-panel friendly-message={msgForUser} errors={errorMsg}></c-error-panel>
     </template>
     <div if:true={detailfields}>
-        <lightning-layout
-            multiple-rows="true"
-            class="slds-var-m-horizontal_small"
-        >
+        <lightning-layout multiple-rows="true" class="slds-var-m-horizontal_small">
             <lightning-layout-item size="12">
-                <h2 class="slds-text-heading_small slds-var-p-bottom_small">
-                    Customer Info:
-                </h2>
+                <h2 class="slds-text-heading_small slds-var-p-bottom_small">Customer Info:</h2>
                 <lightning-record-form
                     class="slds-var-m-vertical_small"
                     record-id={recordid}

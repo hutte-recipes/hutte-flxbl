@@ -55,9 +55,7 @@ export default class SpaceDesignForm extends LightningElement {
     filterItems() {
         this.items = this._records.map((record) => {
             const types = record.Type__c.split(';');
-            const muted = this._filters.some(
-                (filter) => !types.includes(filter)
-            );
+            const muted = this._filters.some((filter) => !types.includes(filter));
             return { record, muted };
         });
     }

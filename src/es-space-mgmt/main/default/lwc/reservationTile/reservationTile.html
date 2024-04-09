@@ -2,23 +2,14 @@
     <div onclick={handleTileClick} class={cssClass}>
         <lightning-layout vertical-align="start">
             <lightning-layout-item>
-                <lightning-icon
-                    icon-name="custom:custom14"
-                    alternative-text="Reservation icon"
-                ></lightning-icon>
+                <lightning-icon icon-name="custom:custom14" alternative-text="Reservation icon"></lightning-icon>
             </lightning-layout-item>
             <lightning-layout-item padding="horizontal-small">
                 <a href={navRef}>{reservation.record.Name}</a>
-                <p if:true={reservation.record.Contact__c}>
-                    Customer: {reservation.record.Contact__r.Name}
-                </p>
-                <p if:true={reservation.record.Lead__c}>
-                    Customer: {reservation.record.Lead__r.Name}
-                </p>
+                <p if:true={reservation.record.Contact__c}>Customer: {reservation.record.Contact__r.Name}</p>
+                <p if:true={reservation.record.Lead__c}>Customer: {reservation.record.Lead__r.Name}</p>
                 <p>Status: {reservation.record.Status__c}</p>
-                <p if:true={reservation.record.Market__c}>
-                    Market: {reservation.record.Market__r.Name}
-                </p>
+                <p if:true={reservation.record.Market__c}>Market: {reservation.record.Market__r.Name}</p>
 
                 <p>
                     Start Date:
@@ -32,9 +23,7 @@
                         value={reservation.record.End_Date__c}
                     ></lightning-formatted-date-time>
                 </p>
-                <p>
-                    Total Guests: {reservation.record.Total_Number_of_Guests__c}
-                </p>
+                <p>Total Guests: {reservation.record.Total_Number_of_Guests__c}</p>
             </lightning-layout-item>
         </lightning-layout>
     </div>

@@ -7,24 +7,9 @@
     </targets>
     <targetConfigs>
         <targetConfig targets="lightning__FlowScreen">
-            <property
-                name="market"
-                type="String"
-                label="Market Record Id"
-                role="inputOnly"
-            />
-            <property
-                name="popTabOnFinish"
-                type="Boolean"
-                label="Go to record?"
-                role="outputOnly"
-            />
-            <property
-                name="selectedtile"
-                type="String"
-                label="Space Record Id"
-                role="outputOnly"
-            />
+            <property name="market" type="String" label="Market Record Id" role="inputOnly" />
+            <property name="popTabOnFinish" type="Boolean" label="Go to record?" role="outputOnly" />
+            <property name="selectedtile" type="String" label="Space Record Id" role="outputOnly" />
         </targetConfig>
     </targetConfigs>
 </LightningComponentBundle>

@@ -22,16 +22,11 @@ describe('c-image-gallery', () => {
         document.body.appendChild(element);
 
         return Promise.resolve().then(() => {
-            const imageTileElements =
-                element.shadowRoot.querySelectorAll('c-image-tile');
+            const imageTileElements = element.shadowRoot.querySelectorAll('c-image-tile');
             expect(imageTileElements.length).toBe(mockSpacesList.length);
 
-            expect(imageTileElements[0].record.Name).toBe(
-                mockSpacesList[0].record.Name
-            );
-            expect(imageTileElements[0].record.Picture_URL__c).toBe(
-                mockSpacesList[0].record.Picture_URL__c
-            );
+            expect(imageTileElements[0].record.Name).toBe(mockSpacesList[0].record.Name);
+            expect(imageTileElements[0].record.Picture_URL__c).toBe(mockSpacesList[0].record.Picture_URL__c);
         });
     });
 
@@ -45,8 +40,7 @@ describe('c-image-gallery', () => {
         document.body.appendChild(element);
 
         return Promise.resolve().then(() => {
-            const imageTileElement =
-                element.shadowRoot.querySelector('c-image-tile');
+            const imageTileElement = element.shadowRoot.querySelector('c-image-tile');
 
             imageTileElement.click();
             expect(element.items[0].selected).toBeTruthy();
@@ -74,15 +68,12 @@ describe('c-image-gallery', () => {
 
         return Promise.resolve()
             .then(() => {
-                const imageTileElement =
-                    element.shadowRoot.querySelector('c-image-tile');
+                const imageTileElement = element.shadowRoot.querySelector('c-image-tile');
                 imageTileElement.click();
             })
             .then(() => {
                 expect(handler).toHaveBeenCalled();
-                expect(handler.mock.calls[0][0].detail).toEqual(
-                    EVENT_DETAIL_PARAMETER
-                );
+                expect(handler.mock.calls[0][0].detail).toEqual(EVENT_DETAIL_PARAMETER);
             });
     });
 

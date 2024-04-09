@@ -1,38 +1,38 @@
 version: 1.0
 
 push_script: |
-  echo 'y' | npm i -g @flxbl-io/sfp
-  echo y | sf plugins install sfdmu # Required when working with data packages
+    echo 'y' | npm i -g @flxbl-io/sfp
+    echo y | sf plugins install sfdmu # Required when working with data packages
 
-  # Install sfpowerscripts-artifacts unlocked package (https://github.com/flxbl-io/sfpowerscripts-artifact)
-  sf package install --package 04t1P000000ka9mQAA --target-org ${SALESFORCE_USERNAME} --wait 10
+    # Install sfpowerscripts-artifacts unlocked package (https://github.com/flxbl-io/sfpowerscripts-artifact)
+    sf package install --package 04t1P000000ka9mQAA --target-org ${SALESFORCE_USERNAME} --wait 10
 
-  # Build and deploy packages
-  sfp quickbuild --devhubalias ${SALESFORCE_DEVHUB_USERNAME} --branch main --waittime 180
-  sfp install --targetorg ${SALESFORCE_USERNAME} --enablesourcetracking --waittime 180
+    # Build and deploy packages
+    sfp quickbuild --devhubalias ${SALESFORCE_DEVHUB_USERNAME} --branch main --waittime 180
+    sfp install --targetorg ${SALESFORCE_USERNAME} --enablesourcetracking --waittime 180
 
 custom_scripts:
-  scratch_org:
-    "Commit Data":
-      description: "Pull Data and commit into the git branch. A package will be created upon merge of the git branch."
-      run: |
-        echo y | sf plugins install sfdmu
-        cd src/data-sample-pkg 
-        sf sfdmu run --sourceusername "${SALESFORCE_USERNAME}" --targetusername csvfile
-        cd ../..
-        git add src/data-sample-pkg/*
-        git commit -m "chore: update data package"
-        git push
-        echo "Data Package has been updated in git. After merge of the Git branch, the provided Github Action will generate a new Data Package and deploy it to the specified environments."
-  sandbox:
-    "Commit Data":
-      description: "Pull Data and commit into the git branch. A package will be created upon merge of the git branch."
-      run: |
-        echo y | sf plugins install sfdmu
-        cd src/data-sample-pkg 
-        sf sfdmu run --sourceusername "${SALESFORCE_USERNAME}" --targetusername csvfile
-        cd ../..
-        git add src/data-sample-pkg/*
-        git commit -m "chore: update data package"
-        git push
-        echo "Data Package has been updated in git. After merge of the Git branch, the provided Github Action will generate a new Data Package and deploy it to the specified environments."
+    scratch_org:
+        'Commit Data':
+            description: 'Pull Data and commit into the git branch. A package will be created upon merge of the git branch.'
+            run: |
+                echo y | sf plugins install sfdmu
+                cd src/data-sample-pkg 
+                sf sfdmu run --sourceusername "${SALESFORCE_USERNAME}" --targetusername csvfile
+                cd ../..
+                git add src/data-sample-pkg/*
+                git commit -m "chore: update data package"
+                git push
+                echo "Data Package has been updated in git. After merge of the Git branch, the provided Github Action will generate a new Data Package and deploy it to the specified environments."
+    sandbox:
+        'Commit Data':
+            description: 'Pull Data and commit into the git branch. A package will be created upon merge of the git branch.'
+            run: |
+                echo y | sf plugins install sfdmu
+                cd src/data-sample-pkg 
+                sf sfdmu run --sourceusername "${SALESFORCE_USERNAME}" --targetusername csvfile
+                cd ../..
+                git add src/data-sample-pkg/*
+                git commit -m "chore: update data package"
+                git push
+                echo "Data Package has been updated in git. After merge of the Git branch, the provided Github Action will generate a new Data Package and deploy it to the specified environments."

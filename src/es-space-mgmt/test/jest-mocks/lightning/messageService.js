@@ -17,9 +17,7 @@ export const publish = jest.fn((messageContext, messageChannel, message) => {
         _messageHandler(message);
     }
 });
-export const subscribe = jest.fn(
-    (messageContext, messageChannel, messageHandler) => {
-        _messageChannel = messageChannel;
-        _messageHandler = messageHandler;
-    }
-);
+export const subscribe = jest.fn((messageContext, messageChannel, messageHandler) => {
+    _messageChannel = messageChannel;
+    _messageHandler = messageHandler;
+});

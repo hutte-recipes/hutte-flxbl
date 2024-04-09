@@ -16,5 +16,5 @@ public inherited sharing class MarketServices {
             WHERE Market__c = :recordId
         ];
     }
-// WITH SECURITY_ENFORCED
+    // WITH SECURITY_ENFORCED
 }

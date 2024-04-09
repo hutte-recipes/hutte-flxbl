@@ -1,7 +1,6 @@
 public inherited sharing class CustomerServices {
     @auraEnabled(cacheable=true)
     public static Customer getCustomerFields(String objectType) {
-
         Customer customer;
 
         for (Customer_Fields__mdt c : [
@@ -49,14 +48,7 @@ public inherited sharing class CustomerServices {
         public String Id { get; set; }
 
         //putting them together, we get our wrapper object:
-        public Customer(
-            String name,
-            String email,
-            String city,
-            String state,
-            String status,
-            String custId
-        ) {
+        public Customer(String name, String email, String city, String state, String status, String custId) {
             this.name = name;
             if (String.isNotEmpty(email))
                 this.email = email;

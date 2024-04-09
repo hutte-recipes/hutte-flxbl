@@ -4,8 +4,7 @@
     <externalId>false</externalId>
     <fieldManageability>SubscriberControlled</fieldManageability>
     <label>Customer State</label>
-    <metadataRelationshipControllingField
-    >Customer_Fields__mdt.Sobject_Type__c</metadataRelationshipControllingField>
+    <metadataRelationshipControllingField>Customer_Fields__mdt.Sobject_Type__c</metadataRelationshipControllingField>
     <referenceTo>EntityParticle</referenceTo>
     <relationshipLabel>Customer_Fields1</relationshipLabel>
     <relationshipName>Customer_Fields1</relationshipName>

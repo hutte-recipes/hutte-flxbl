@@ -6,10 +6,6 @@ export default class ImageTile extends LightningElement {
     @api selected;
 
     get cssClass() {
-        return (
-            'slds-box slds-box_xx-small es-tile' +
-            (this.muted ? ' muted' : '') +
-            (this.selected ? ' selected' : '')
-        );
+        return 'slds-box slds-box_xx-small es-tile' + (this.muted ? ' muted' : '') + (this.selected ? ' selected' : '');
     }
 }

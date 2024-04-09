@@ -72,10 +72,7 @@ describe('c-error-panel', () => {
     });
 
     it('doesnt display errors on load when they are passed as parameters', () => {
-        const ERROR_MESSAGES_INPUT = [
-            { message: 'First bad error' },
-            { message: 'Second bad error' }
-        ];
+        const ERROR_MESSAGES_INPUT = [{ message: 'First bad error' }, { message: 'Second bad error' }];
 
         // Create initial element
         const element = createElement('c-error-panel', {
@@ -85,18 +82,15 @@ describe('c-error-panel', () => {
         document.body.appendChild(element);
 
         return Promise.resolve().then(() => {
-            const messageTexts = Array.from(
-                element.shadowRoot.querySelectorAll('p')
-            ).map((errorMessage) => (errorMessage = errorMessage.textContent));
+            const messageTexts = Array.from(element.shadowRoot.querySelectorAll('p')).map(
+                (errorMessage) => (errorMessage = errorMessage.textContent)
+            );
             expect(messageTexts.length).toEqual(0);
         });
     });
 
     it('displays error details on button click when they passed as parameters', () => {
-        const ERROR_MESSAGES_INPUT = [
-            { message: 'First bad error' },
-            { message: 'Second bad error' }
-        ];
+        const ERROR_MESSAGES_INPUT = [{ message: 'First bad error' }, { message: 'Second bad error' }];
         const ERROR_MESSAGES_OUTPUT = ['First bad error', 'Second bad error'];
 
         // Create initial element
@@ -110,18 +104,15 @@ describe('c-error-panel', () => {
         anchorEl.click();
 
         return Promise.resolve().then(() => {
-            const messageTexts = Array.from(
-                element.shadowRoot.querySelectorAll('p')
-            ).map((errorMessage) => (errorMessage = errorMessage.textContent));
+            const messageTexts = Array.from(element.shadowRoot.querySelectorAll('p')).map(
+                (errorMessage) => (errorMessage = errorMessage.textContent)
+            );
             expect(messageTexts).toEqual(ERROR_MESSAGES_OUTPUT);
         });
     });
 
     it('is accessible when inline message', () => {
-        const ERROR_MESSAGES_INPUT = [
-            { message: 'First bad error' },
-            { message: 'Second bad error' }
-        ];
+        const ERROR_MESSAGES_INPUT = [{ message: 'First bad error' }, { message: 'Second bad error' }];
 
         const element = createElement('c-error-panel', {
             is: ErrorPanel
@@ -138,10 +129,7 @@ describe('c-error-panel', () => {
     });
 
     it('is accessible when no data illustration', () => {
-        const ERROR_MESSAGES_INPUT = [
-            { message: 'First bad error' },
-            { message: 'Second bad error' }
-        ];
+        const ERROR_MESSAGES_INPUT = [{ message: 'First bad error' }, { message: 'Second bad error' }];
 
         const element = createElement('c-error-panel', {
             is: ErrorPanel
