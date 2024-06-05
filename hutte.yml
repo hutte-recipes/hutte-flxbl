@@ -22,7 +22,7 @@ custom_scripts:
                 cd ../..
                 git add src/data-sample-pkg/*
                 git commit -m "chore: update data package"
-                git push
+                git push origin "${HUTTE_GIT_SOURCE_BRANCH}"
                 echo "Data Package has been updated in git. After merge of the Git branch, the provided Github Action will generate a new Data Package and deploy it to the specified environments."
     sandbox:
         'Commit Data':
@@ -34,5 +34,5 @@ custom_scripts:
                 cd ../..
                 git add src/data-sample-pkg/*
                 git commit -m "chore: update data package"
-                git push
+                git push origin "${HUTTE_GIT_SOURCE_BRANCH}"
                 echo "Data Package has been updated in git. After merge of the Git branch, the provided Github Action will generate a new Data Package and deploy it to the specified environments."
