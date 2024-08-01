@@ -1,6 +1,7 @@
-version: 1.0
+version: "1.0"
 
 push_script: |
+    set -euo pipefail # fail fast
     echo 'y' | npm i -g @flxbl-io/sfp
     echo y | sf plugins install sfdmu # Required when working with data packages
 
@@ -16,6 +17,7 @@ custom_scripts:
         'Commit Data':
             description: 'Pull Data and commit into the git branch. A package will be created upon merge of the git branch.'
             run: |
+                set -euo pipefail # fail fast
                 echo y | sf plugins install sfdmu
                 cd src/data-sample-pkg 
                 sf sfdmu run --sourceusername "${SALESFORCE_USERNAME}" --targetusername csvfile
@@ -28,6 +30,7 @@ custom_scripts:
         'Commit Data':
             description: 'Pull Data and commit into the git branch. A package will be created upon merge of the git branch.'
             run: |
+                set -euo pipefail # fail fast
                 echo y | sf plugins install sfdmu
                 cd src/data-sample-pkg 
                 sf sfdmu run --sourceusername "${SALESFORCE_USERNAME}" --targetusername csvfile
